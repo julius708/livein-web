@@ -18,7 +18,7 @@ main#main{outline:none}
 .top .menu-toggle{display:grid}
 .mobile-nav{display:none}
 .mobile-nav.open{display:grid;position:fixed;z-index:39;left:12px;right:12px;top:92px;padding:14px 16px;gap:4px;margin:0;border-radius:26px;border:1px solid #ffffffb3;
-  background:linear-gradient(115deg,#ffffff24 0%,#ffffff06 48%,#ffffff14 100%),rgba(18,52,36,.42);border-color:#ffffff59;
+  background:linear-gradient(115deg,#ffffff24 0%,#ffffff06 48%,#ffffff14 100%),rgba(18,52,36,.42)!important;border-color:#ffffff59;
   -webkit-backdrop-filter:blur(34px) saturate(170%);backdrop-filter:blur(34px) saturate(170%);
   box-shadow:inset 0 1px 0 #ffffff66,inset 1px 0 0 #ffffff2e,inset 0 -1px 0 #00000014,0 24px 56px -20px #0d2a1c99;
   animation:mn-in .28s cubic-bezier(.2,.8,.2,1) both}
