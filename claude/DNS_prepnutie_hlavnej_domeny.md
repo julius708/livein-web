@@ -1,6 +1,6 @@
 # Prepnutie live-in.international na nový web (Vercel)
 
-Stav 3. 11. 2026: nový web beží na Vercel projekte `livein-web` (team pracovna-app).
+Stav 3. 11. 2026: DNS prepnuté, live-in.international beží na Verceli (projekt `livein-web`, team pracovna-app).
 Domény `live-in.international` a `www.live-in.international` sú v projekte pridané a overené.
 Starý WordPress web beží na GoDaddy (IP 160.153.0.183), DNS je v GoDaddy (ns51/ns52.domaincontrol.com).
 
@@ -23,5 +23,5 @@ Vercel po zmene sám vystaví certifikát (do pár minút po propagácii DNS, ma
 - `www.live-in.international` → presmeruje na `live-in.international` (308).
 - Staré adresy WordPressu (/clanky, /o-nas, /sluzby, /nehnutelnost/…, články) sa presmerujú na nové stránky.
 - Sitemap: https://live-in.international/sitemap.xml, robots.txt odkazuje naň.
-- `new.live-in.international` odobrať z projektu: Vercel → livein-web → Settings → Domains → „Remove“ (cez API to z tejto session nejde).
+- `new.live-in.international` z projektu odobratá (3. 11. 2026).
 - GoDaddy WordPress hosting sa dá po overení vypnúť (zálohu článkov máme v novom webe v Poradni).
