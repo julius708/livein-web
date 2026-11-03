@@ -38,3 +38,15 @@ main#main{outline:none}
 /* prepínač animácií vľavo dole, aby neprekrýval Adama */
 .motion-control,.motion-control:hover{right:auto;left:14px;bottom:14px}
 @media(max-width:700px){.motion-control{left:10px;bottom:10px}}
+/* farby zjednotené s appkou: žiadna hrdzavá červená, akcent je zelený, oranžová len na tlačidlách a čiarkach */
+:root{--accent:#2F5C45;--brand-orange-text:#245742}
+.eyebrow{color:#4F6657;font-weight:700}
+.eyebrow:before{background:#173E2C;opacity:.55}
+.hero .eyebrow,.film-journey .eyebrow,.story-care .eyebrow,.soft-interlude .eyebrow,.cta .eyebrow,.office-background .eyebrow,.subhero.office-background .eyebrow{color:#D8E3D9}
+.hero .eyebrow:before,.film-journey .eyebrow:before,.story-care .eyebrow:before,.cta .eyebrow:before,.office-background .eyebrow:before{background:#F46D16;opacity:1}
+h1 em,h2 em{color:#245742}
+.hero h1 span{color:#F6F2EA}
+.service .number,.step .num,.article small,.floating small{color:#4F6657}
+.navlink:hover,.text-btn:hover,.footer a:hover,.footer button:hover{color:#173E2C}
+.lcalc .eyebrow,.lspol .eyebrow{color:#4F6657}
+.lcalc header .eyebrow{color:#D8E3D9}
