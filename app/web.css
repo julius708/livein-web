@@ -79,3 +79,35 @@ h1 em,h2 em{color:#245742}
 @media(max-width:900px){.top .wrap.nav>.btn,.top .livein-language,.top .menu-toggle{height:42px!important;min-height:42px}.top .menu-toggle{width:42px}}
 .top .livein-language{margin-top:0!important;margin-bottom:0!important;align-self:center}
 .top .wrap.nav>.btn,.top .menu-toggle{align-self:center;margin-top:0;margin-bottom:0}
+/* ---------- Domov: sekcia „Za dobrým pobytom“ – nové rozloženie (sklo, široká fotka vpravo, kroky a text vľavo) ---------- */
+.story-care{background:linear-gradient(160deg,#1b4a35,#173E2C 55%,#12301f)!important;color:#F6F2EA;padding:72px 0 80px!important;border-radius:34px;margin:0 12px}
+.story-care .story-section-kicker{border-color:#ffffff26!important;color:#C8D6CB!important}
+.story-care-heading{display:grid!important;grid-template-columns:1.1fr .9fr;align-items:end;gap:40px;padding:40px 0 36px!important}
+.story-care-heading h2{margin:0;font-size:clamp(40px,6vw,72px);line-height:.98;letter-spacing:-.04em;color:#F6F2EA}
+.story-care-heading h2 em{color:#F7B98A}
+.story-care-heading p{font-size:17px!important;line-height:1.7;color:#D8E3D9!important;max-width:420px!important;margin:0!important;justify-self:end}
+.story-care-stage{display:grid!important;grid-template-columns:minmax(300px,.9fr) 1.1fr!important;grid-template-areas:"rail photo" "desc photo";gap:18px 40px!important;align-items:stretch!important}
+.story-care-rail{grid-area:rail;display:grid!important;gap:8px!important;padding:0!important;align-self:start}
+.story-care-rail button{min-height:0!important;padding:16px 18px!important;border:1px solid #ffffff22!important;border-radius:18px;background:#ffffff0a!important;color:#D8E3D9!important;gap:14px!important;transition:background .2s,border-color .2s,transform .2s}
+.story-care-rail button>span{font-size:12px!important;font-weight:700;color:#C8D6CB;min-width:22px}
+.story-care-rail strong{font-size:clamp(19px,1.6vw,23px)!important;font-weight:650!important;letter-spacing:-.02em!important}
+.story-care-rail b{display:none!important}
+.story-care-rail button:hover{background:#ffffff14!important;border-color:#ffffff40!important}
+.story-care-rail button[aria-pressed=true]{background:linear-gradient(125deg,#ffffff2b,#ffffff10)!important;border-color:#ffffff66!important;color:#fff!important;box-shadow:inset 0 1px 0 #ffffff55,0 12px 30px -16px #00000080}
+.story-care-rail button[aria-pressed=true]>span{color:#F7B98A!important}
+.story-care-photo{grid-area:photo;aspect-ratio:4/3!important;height:auto!important;width:100%!important;border-radius:28px!important;border:1px solid #ffffff40;box-shadow:inset 0 1px 0 #ffffff33,0 30px 70px -30px #00000099;background:#0f2a1c}
+.story-care-photo-caption{left:14px!important;right:auto!important;bottom:14px!important;background:#102a1ccc!important;border:1px solid #ffffff33;border-radius:999px;padding:7px 12px!important;font-size:11px!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.story-care-description{grid-area:desc;display:grid!important;grid-template-columns:1fr!important;gap:10px!important;padding:22px 22px 20px;border:1px solid #ffffff22;border-radius:22px;background:#ffffff0a;align-self:end}
+.story-care-description>span:first-child{color:#F7B98A!important;font-size:11px!important;letter-spacing:.14em!important;font-weight:700}
+.story-care-description h3{font-size:26px!important;margin:0!important;color:#fff!important;letter-spacing:-.025em}
+.story-care-description p{font-size:15px!important;line-height:1.7!important;color:#D8E3D9!important;margin:0!important}
+.story-care-dash{display:block!important;width:36px;height:2px;background:#F46D16!important;margin:6px 0!important}
+.story-care-description .story-care-footnote{font-size:12px!important;color:#A9BCB0!important;margin:0!important}
+@media(max-width:900px){
+  .story-care{margin:0 8px;border-radius:28px;padding:48px 0 56px!important}
+  .story-care-heading{grid-template-columns:1fr;gap:16px;padding:28px 0 24px!important}
+  .story-care-heading p{justify-self:start}
+  .story-care-stage{grid-template-columns:1fr!important;grid-template-areas:"photo" "rail" "desc";gap:16px!important}
+  .story-care-photo{aspect-ratio:4/3!important}
+  .story-care-rail button{padding:14px 16px!important}
+}
