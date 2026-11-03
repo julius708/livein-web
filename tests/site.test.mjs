@@ -21,6 +21,9 @@ test('odkazy: tlačidlá data-route → <a href>', () => {
   assert.ok(!out.includes('<button'))
   const en = transformHtml(html, 'en')
   assert.match(en, /href="\/en\/kratkodoba"/)
+  const rel = transformHtml('<a href="spolupraca.html">x</a><a href="index.html#kontakt">y</a>', 'de')
+  assert.match(rel, /href="\/de\/spolupraca"/)
+  assert.match(rel, /href="\/de\/kontakt"/)
 })
 
 test('hrefy a aliasy', () => {
