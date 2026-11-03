@@ -1,0 +1,40 @@
+/* LIVE-IN web v Next.js – zjednotenie s appkou (Figtree, zelené sklo, dlaždice). */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap');
+@import './calc.css';
+@import './spolupraca.css';
+
+html{scroll-behavior:smooth}
+body{min-height:100vh}
+main#main{outline:none}
+/* hlavička: logo ako odkaz, jazyk, menu */
+.top .logo{display:flex;align-items:center;text-decoration:none}
+.top .navlink{text-decoration:none}
+.top .livein-language{margin-left:4px}
+.top .wrap.nav{gap:6px}
+.mobile-nav .navlink{display:block;text-decoration:none}
+@media(max-width:1180px){.top .navlink{padding:9px 10px;font-size:13px}}
+@media(max-width:1020px){.top .wrap.nav>.navlink,.top>.wrap>.btn{display:none}.top .livein-language{margin-left:auto}.mobile-nav .navlink{display:block;padding:12px 14px;font-size:16px;font-weight:650;color:#173E2C;border-radius:14px}.mobile-nav .navlink[aria-current="page"]{background:#173E2C;color:#fff}.mobile-nav .btn{margin-top:8px}}
+@media(min-width:1021px){.menu-toggle{display:none}.mobile-nav{display:none!important}}
+/* kalkulačka v rámci webu */
+.lcalc{padding:16px 0 40px}
+.lcalc main{max-width:1180px;margin:0 auto}
+/* podmienky spolupráce */
+.lspol{padding:40px 0}
+.lspol .lspol-main{max-width:860px;margin:0 auto;background:var(--lg-surface);border:1px solid #ffffffb3;border-radius:var(--lg-radius);box-shadow:var(--lg-shadow);padding:40px}
+.lspol .lspol-foot{max-width:860px;margin:18px auto 0;color:var(--muted);font-size:13px;text-align:center}
+@media(max-width:700px){.lspol .lspol-main{padding:24px 18px}}
+/* skryté realitné trasy (ako na pôvodnom webe) */
+[data-route="reality"],[data-route="ponuky"],[data-route="predaj"]{display:none!important}
+/* aktívna položka menu: čitateľná na bielej pilulke */
+.top .navlink[aria-current="page"]{color:#173E2C!important;background:linear-gradient(155deg,#fff,#e8ece4)!important}
+.top .navlink[aria-current="page"]:after{display:none}
+/* prepínač jazyka: kompaktný */
+.top .livein-language{flex:0 0 auto;width:auto;max-width:150px;padding:9px 30px 9px 12px;font-size:12px}
+.top .wrap.nav>.btn{flex:0 0 auto;white-space:nowrap;padding:10px 16px;font-size:13px}
+.top .wrap.nav{justify-content:flex-start}
+.top .wrap.nav .logo{margin-right:6px}
+.top .wrap.nav .btn,.top .wrap.nav .livein-language{margin-left:auto}
+.top .wrap.nav .btn+.livein-language{margin-left:4px}
+/* prepínač animácií vľavo dole, aby neprekrýval Adama */
+.motion-control,.motion-control:hover{right:auto;left:14px;bottom:14px}
+@media(max-width:700px){.motion-control{left:10px;bottom:10px}}
