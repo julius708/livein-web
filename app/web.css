@@ -14,7 +14,14 @@ main#main{outline:none}
 .mobile-nav .navlink{display:block;text-decoration:none}
 @media(max-width:1180px){.top .navlink{padding:9px 10px;font-size:13px}}
 @media(max-width:1020px){.top .wrap.nav>.navlink,.top>.wrap>.btn{display:none}.top .livein-language{margin-left:auto}.mobile-nav .navlink{display:block;padding:12px 14px;font-size:16px;font-weight:650;color:#173E2C;border-radius:14px}.mobile-nav .navlink[aria-current="page"]{background:#173E2C;color:#fff}.mobile-nav .btn{margin-top:8px}}
-@media(min-width:1021px){.menu-toggle{display:none}.mobile-nav{display:none!important}}
+/* hamburger funguje na každej šírke: rozbalí menu so všetkými položkami (aj O nás, Kontakt) */
+.top .menu-toggle{display:grid}
+.mobile-nav{display:none}
+.mobile-nav.open{display:grid;padding:14px 18px;gap:4px}
+.mobile-nav .navlink{display:block;padding:12px 14px;font-size:16px;font-weight:650;color:#173E2C;border-radius:14px;border-bottom:0}
+.mobile-nav .navlink[aria-current="page"]{background:#173E2C;color:#fff}
+.mobile-nav .btn{margin-top:8px;justify-self:start}
+@media(min-width:1021px){.mobile-nav.open{grid-template-columns:repeat(2,minmax(0,1fr))}.mobile-nav .btn{grid-column:1/-1}}
 /* kalkulačka v rámci webu */
 .lcalc{padding:16px 0 40px}
 .lcalc main{max-width:1180px;margin:0 auto}
