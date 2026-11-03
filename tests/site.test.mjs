@@ -24,6 +24,11 @@ test('odkazy: tlačidlá data-route → <a href>', () => {
   const rel = transformHtml('<a href="spolupraca.html">x</a><a href="index.html#kontakt">y</a>', 'de')
   assert.match(rel, /href="\/de\/spolupraca"/)
   assert.match(rel, /href="\/de\/kontakt"/)
+  // kotvy v rámci stránky (kalkulačka) ostávajú kotvami
+  const anchors = transformHtml('<a href="#result">v</a><a href="#adjust">u</a><a href="/#kontakt">k</a>', 'sk')
+  assert.match(anchors, /href="#result"/)
+  assert.match(anchors, /href="#adjust"/)
+  assert.match(anchors, /href="\/kontakt"/)
 })
 
 test('hrefy a aliasy', () => {
