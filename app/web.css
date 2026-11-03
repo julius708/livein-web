@@ -57,3 +57,6 @@ h1 em,h2 em{color:#245742}
 .navlink:hover,.text-btn:hover,.footer a:hover,.footer button:hover{color:#173E2C}
 .lcalc .eyebrow,.lspol .eyebrow{color:#4F6657}
 .lcalc header .eyebrow{color:#D8E3D9}
+/* rozbalené menu: pri prejdení myšou zelený podklad, bez oranžového podčiarknutia */
+.mobile-nav .navlink:hover{background:#173e2c12;color:#173E2C}
+.mobile-nav .navlink:after,.mobile-nav .navlink:hover:after,.mobile-nav .navlink[aria-current="page"]:after{display:none}
