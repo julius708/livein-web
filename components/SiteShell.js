@@ -22,11 +22,12 @@ export default function SiteShell({ lang, route, kind, children }) {
           <LangSwitch lang={lang} hrefs={Object.fromEntries(LANGS.map(l => [l, sameRoute(l)]))} names={LANG_NAMES} />
           <MenuToggle label={c.menuAria} />
         </div>
-        <nav className="mobile-nav" aria-label="Menu">
-          {mobile.map(n => <a key={n.route} className="navlink" data-route={n.route} href={routeHref(lang, n.route)} aria-current={route === n.route ? 'page' : undefined}>{n.label}</a>)}
-          <button className="btn" type="button" data-form="sprava">{c.cta}</button>
-        </nav>
       </header>
+      {/* rozbaľovacie menu mimo hlavičky: plávajúci sklenený panel nad obsahom */}
+      <nav className="mobile-nav" aria-label="Menu">
+        {mobile.map(n => <a key={n.route} className="navlink" data-route={n.route} href={routeHref(lang, n.route)} aria-current={route === n.route ? 'page' : undefined}>{n.label}</a>)}
+        <button className="btn" type="button" data-form="sprava">{c.cta}</button>
+      </nav>
       <main id="main" tabIndex={-1} data-lang={lang} data-route={route}>
         {children}
       </main>

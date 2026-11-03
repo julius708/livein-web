@@ -17,9 +17,15 @@ main#main{outline:none}
 /* hamburger funguje na každej šírke: rozbalí menu so všetkými položkami (aj O nás, Kontakt) */
 .top .menu-toggle{display:grid}
 .mobile-nav{display:none}
-.mobile-nav.open{display:grid;padding:14px 18px;gap:4px}
-.mobile-nav .navlink{display:block;padding:12px 14px;font-size:16px;font-weight:650;color:#173E2C;border-radius:14px;border-bottom:0}
-.mobile-nav .navlink[aria-current="page"]{background:#173E2C;color:#fff}
+.mobile-nav.open{display:grid;position:fixed;z-index:39;left:12px;right:12px;top:92px;padding:14px 16px;gap:4px;margin:0;border-radius:26px;border:1px solid #ffffffb3;
+  background:linear-gradient(115deg,#ffffff24 0%,#ffffff06 48%,#ffffff14 100%),rgba(18,52,36,.42);border-color:#ffffff59;
+  -webkit-backdrop-filter:blur(34px) saturate(170%);backdrop-filter:blur(34px) saturate(170%);
+  box-shadow:inset 0 1px 0 #ffffff66,inset 1px 0 0 #ffffff2e,inset 0 -1px 0 #00000014,0 24px 56px -20px #0d2a1c99;
+  animation:mn-in .28s cubic-bezier(.2,.8,.2,1) both}
+@keyframes mn-in{from{opacity:0;transform:translateY(-10px) scale(.985)}to{opacity:1;transform:none}}
+@media(max-width:900px){.mobile-nav.open{left:8px;right:8px;top:80px;border-radius:22px}}
+.mobile-nav .navlink{display:block;padding:12px 14px;font-size:16px;font-weight:650;color:#F6F2EA!important;border-radius:14px;border-bottom:0;-webkit-text-fill-color:#F6F2EA}
+.mobile-nav .navlink[aria-current="page"]{background:linear-gradient(155deg,#fff,#e8ece4);color:#173E2C!important;-webkit-text-fill-color:#173E2C}
 .mobile-nav .btn{margin-top:8px;justify-self:start}
 @media(min-width:1021px){.mobile-nav.open{grid-template-columns:repeat(2,minmax(0,1fr))}.mobile-nav .btn{grid-column:1/-1}}
 /* kalkulačka v rámci webu */
@@ -58,5 +64,6 @@ h1 em,h2 em{color:#245742}
 .lcalc .eyebrow,.lspol .eyebrow{color:#4F6657}
 .lcalc header .eyebrow{color:#D8E3D9}
 /* rozbalené menu: pri prejdení myšou zelený podklad, bez oranžového podčiarknutia */
-.mobile-nav .navlink:hover{background:#173e2c12;color:#173E2C}
+.mobile-nav .navlink:hover{background:#ffffff1f;color:#fff!important;-webkit-text-fill-color:#fff}
+.mobile-nav .btn{background:linear-gradient(165deg,#ff8a3d,#F46D16 60%,#d95d0f)!important;border-color:#ff9a57!important}
 .mobile-nav .navlink:after,.mobile-nav .navlink:hover:after,.mobile-nav .navlink[aria-current="page"]:after{display:none}
