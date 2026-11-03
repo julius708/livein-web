@@ -78,7 +78,7 @@ function updateStory(){updateCinema()}
  * No network, storage, market defaults, or personal data. */
 
 const subpagePhotos={
- sprava:['thirring/skypark4-obyvacka.webp','thirring/skypark1-spalna-vyhlad.webp'],kratkodoba:['thirring/eurovea-obyvacka.webp','thirring/triveze-spalna.webp'],dlhodoba:['thirring/moskovska-obyvacka.webp','thirring/moskovska-spalna.webp'],postup:['thirring/skypark-spalna-mesto.webp','thirring/kupelna.webp'],onas:['autumn-skypark-dining-1600.webp','autumn-design-detail-1600.webp'],kontakt:['autumn-design-dining-1600.webp','autumn-design-balcony-1600.webp'],predaj:['thirring-loft-wide.jpg','thirring-moscow-2.jpg'],ponuky:['thirring-sky-living.jpg','thirring-loft-1.jpg'],hostia:['thirring/skypark4-spalna.webp','thirring/skypark1-loggia.webp'],poradna:['thirring/skypark1-spalna.webp','thirring/petrzalka-spalna.webp']
+ sprava:['thirring/skypark4-obyvacka.webp','thirring/skypark1-spalna-vyhlad.webp'],kratkodoba:['thirring/eurovea-obyvacka.webp','thirring/triveze-spalna.webp'],dlhodoba:['thirring/moskovska-obyvacka.webp','thirring/moskovska-spalna.webp'],postup:['thirring/skypark-spalna-mesto.webp','thirring/kupelna.webp'],onas:['autumn-skypark-dining-1600.webp','autumn-design-detail-1600.webp'],kontakt:['autumn-design-dining-1600.webp','autumn-design-balcony-1600.webp'],predaj:['thirring-loft-wide.jpg','thirring-moscow-2.jpg'],ponuky:['thirring-sky-living.jpg','thirring-loft-1.jpg'],hostia:['thirring/skypark4-spalna.webp','thirring/skypark1-loggia.webp'],ceny:['thirring/skypark4-spalna.webp','thirring/kupelna.webp'],faq:['thirring/moskovska-spalna.webp','thirring/skypark1-loggia.webp'],poradna:['thirring/skypark1-spalna.webp','thirring/petrzalka-spalna.webp']
 };
 function subpageMedia(id){if(['onas','kontakt'].includes(id)||!subpagePhotos[id])return '';return `<div class="subpage-photos" aria-label="Fotografie bytů LIVE-IN">${subpagePhotos[id].map((photo,i)=>`<div class="subpage-photo subpage-photo-${i}"><img src="/assets/${photo}" alt="Fotografie bytu z portfolia LIVE-IN" loading="lazy" decoding="async"></div>`).join('')}</div>`}
 
@@ -95,7 +95,7 @@ function setupCinema(){const root=main.querySelector('.film-journey');if(!root)r
  first.dataset.filmClip='0';
  // Keep each decoder/source alive; never replace src during a scene transition.
  first.preload=motionEnabled&&!navigator.connection?.saveData?'auto':'none';
- [['cinema-loft.mp4','cinema-loft.webp'],['cinema-terrace.mp4','cinema-terrace.webp']].forEach((clip,i)=>{
+ [['film/sky-bedroom.mp4','thirring/skypark1-spalna-vyhlad.webp'],['film/eurovea.mp4','thirring/eurovea-obyvacka.webp']].forEach((clip,i)=>{
   const v=first.cloneNode(false);v.dataset.filmClip=String(i+1);v.poster='/assets/'+clip[1];v.src='/assets/'+clip[0];v.classList.remove('playing');v.setAttribute('aria-hidden','true');first.before(v);
  });
  root.querySelectorAll('[data-film-scene]').forEach(b=>b.onclick=()=>{const index=Number(b.dataset.filmScene);if(!motionEnabled||window.matchMedia('(max-height:780px),(max-width:700px)').matches){setFilmScene(index);return}const stage=root.querySelector('.film-stage'),top=parseFloat(getComputedStyle(stage).top)||0;const range=Math.max(1,root.offsetHeight-stage.offsetHeight);const progress=[0,.46,.91][index];window.scrollTo({top:window.scrollY+root.getBoundingClientRect().top-top+range*progress,behavior:'smooth'})});setFilmScene(0)}

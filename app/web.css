@@ -111,3 +111,12 @@ h1 em,h2 em{color:#245742}
   .story-care-photo{aspect-ratio:4/3!important}
   .story-care-rail button{padding:14px 16px!important}
 }
+
+/* O nás / Kontakt: úvodný box s fotkou na celú šírku, vyšší, fotka viac vidieť */
+.route>.subhero.office-background{max-width:none!important;min-height:380px;display:flex;flex-direction:column;justify-content:flex-end}
+.route>.subhero.office-background .office-background-media img,.route>.subhero.office-background .office-background-media video{object-position:50% 55%}
+@media(max-width:700px){.route>.subhero.office-background{min-height:300px}}
+
+/* Mobil: oranžové tlačidlo je v rozbaľovacom menu, v hlavičke sa skryje, aby sa zmestil jazyk + hamburger */
+@media(max-width:1020px){.top .wrap.nav>.btn{display:none!important}.top .livein-language{margin-left:auto}}
+@media(max-width:360px){.top .livein-language{max-width:120px}}
