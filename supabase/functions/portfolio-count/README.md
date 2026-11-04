@@ -36,3 +36,22 @@ aby sa dal neskôr zobraziť graf rastu po mesiacoch.
 ## Nasadenie
 
 Zdroj je v tomto priečinku; nasadenie cez Supabase MCP / CLI: `supabase functions deploy portfolio-count --no-verify-jwt`.
+
+## Denné snímky a ročné míľniky (v2, 4. 11. 2026)
+
+Funkcia pri každom obnovení cache uloží dennú snímku počtu do `public.portfolio_snapshots` a vracia `year` a `history`
+(stav ku koncu každého uzavretého roka od `BASELINE_YEAR`). Web z toho po Novom roku automaticky doplní stĺpec
+minulého roka do grafu rastu. Tabuľku treba vytvoriť raz (Supabase → SQL Editor):
+
+```sql
+create table if not exists public.portfolio_snapshots (
+  day date primary key,
+  count integer not null check (count >= 0),
+  recorded_at timestamptz not null default now()
+);
+alter table public.portfolio_snapshots enable row level security;
+comment on table public.portfolio_snapshots is 'Denné snímky počtu aktívnych apartmánov v správe (zdroj pre ročné míľniky na webe). Zapisuje Edge Function portfolio-count.';
+```
+
+Bez politík RLS k tabuľke pristupuje iba service role (funkcia). Kým tabuľka neexistuje, funkcia ďalej vracia živý
+počet, `history` je prázdne a do logu sa zapíše chyba zápisu snímky.
