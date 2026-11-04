@@ -4,3 +4,4 @@ node_modules
 .env*
 .source
 .claude/
+claude/livin-asistent-src/
