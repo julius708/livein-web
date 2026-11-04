@@ -67,18 +67,25 @@ h2 em,.story-home h2 em{font-style:normal;color:#245742}
 .stats-band .stats-live{border-bottom:0!important;color:#173E2C!important}
 .stats-band .stats-live b{color:#B84A08}
 
-/* cesta s míľnikmi pod pásom faktov */
-.stats-journey{max-width:1280px;margin:0 auto 28px;padding:0 var(--p-gutter)}
-.story-home .stats-journey-head,.stats-journey-head{font-size:var(--p-kicker)!important;font-weight:700!important;letter-spacing:.16em!important;text-transform:uppercase;color:#4F6657;text-align:center;margin:0 0 14px;line-height:1.5}
-.stats-journey-track{list-style:none;margin:0 auto;max-width:980px;padding:24px 28px 22px;display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:8px;position:relative;border-radius:var(--p-card);background:linear-gradient(125deg,#ffffff70,transparent),var(--lg-surface);border:1px solid #ffffffb3;box-shadow:var(--lg-shadow)}
-.stats-journey-track:before{content:'';position:absolute;top:29px;left:calc(28px + (100% - 56px) / var(--n,5) / 2);right:calc(28px + (100% - 56px) / var(--n,5) / 2);height:2px;background:linear-gradient(90deg,#173e2c2e,#173e2c66 70%,#B84A08);border-radius:2px}
-.stats-journey-track li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding-top:22px;min-width:0}
-.stats-journey-track li:before{content:'';position:absolute;top:0;width:12px;height:12px;border-radius:50%;background:#173E2C;border:2px solid #fff;box-shadow:0 0 0 2px #173e2c22;box-sizing:border-box}
-.stats-journey-track li b{font-weight:600;font-size:clamp(26px,2.6vw,36px);line-height:1;letter-spacing:-.04em;color:#173E2C;font-variant-numeric:tabular-nums}
-.stats-journey-track li span{font-size:12px;font-weight:600;color:var(--p-soft);letter-spacing:.02em}
-.stats-journey-track li.is-live:before{background:#B84A08;box-shadow:0 0 0 3px #b84a0826,0 0 0 8px #b84a0810}
-.stats-journey-track li.is-live b{color:#B84A08}
-.stats-journey-track li.is-live span{color:#B84A08;text-transform:uppercase;letter-spacing:.12em;font-size:11px}
+/* cesta s míľnikmi pod pásom faktov: graf rastu */
+.stats-band .stats-live{cursor:default!important}
+.stats-journey{max-width:1280px;margin:4px auto 28px;padding:0 var(--p-gutter)}
+.stats-journey>*{max-width:1040px;margin-left:auto;margin-right:auto}
+.stats-journey-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:0 10px;margin-bottom:12px}
+.story-home .stats-journey-head,.stats-journey-head{font-size:var(--p-kicker)!important;font-weight:700!important;letter-spacing:.16em!important;text-transform:uppercase;color:#4F6657;margin:0;line-height:1.5}
+.story-home .stats-journey-note,.stats-journey-note{font-size:12px;color:var(--p-soft);margin:0;line-height:1.5;text-align:right}
+.stats-journey-chart{list-style:none;margin:0 auto;padding:30px clamp(20px,4vw,48px) 20px;height:250px;box-sizing:border-box;display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:clamp(10px,2.4vw,32px);position:relative;border-radius:var(--p-card);background:linear-gradient(125deg,#ffffff70,transparent),var(--lg-surface);border:1px solid #ffffffb3;box-shadow:var(--lg-shadow);overflow:hidden}
+.stats-journey-chart:before{content:'';position:absolute;inset:auto clamp(20px,4vw,48px) 54px;height:1px;background:#173e2c22}
+.sj-bar{display:grid;grid-template-rows:auto 1fr auto;justify-items:center;gap:8px;min-width:0;height:100%}
+.sj-bar b{font-weight:600;font-size:clamp(22px,2.4vw,32px);line-height:1;letter-spacing:-.04em;color:#173E2C;font-variant-numeric:tabular-nums;align-self:end}
+.sj-track{width:100%;max-width:120px;height:100%;display:flex;align-items:flex-end;justify-content:center}
+.sj-bar i{display:block;width:100%;height:calc(var(--v,0) / var(--max,1) * 100%);min-height:6px;border-radius:12px 12px 4px 4px;background:linear-gradient(180deg,#3a6a52,#173E2C);box-shadow:inset 0 1px 0 #ffffff33;transform-origin:bottom center;transform:scaleY(.04);transition:transform 1.1s cubic-bezier(.2,.75,.2,1) calc(var(--i,0) * .12s)}
+.stats-journey.in .sj-bar i{transform:scaleY(1)}
+.sj-bar span{font-size:12px;font-weight:600;color:var(--p-soft);letter-spacing:.02em;white-space:nowrap}
+.sj-bar.is-live b{color:#B84A08}
+.sj-bar.is-live i{background:linear-gradient(180deg,#F7B98A,#C4541A 60%,#B84A08);box-shadow:inset 0 1px 0 #ffffff66,0 14px 30px -14px #b84a0899}
+.sj-bar.is-live span{color:#B84A08;text-transform:uppercase;letter-spacing:.12em;font-size:11px}
+@media(prefers-reduced-motion:reduce){.sj-bar i{transition:none;transform:none}}
 
 /* ---------- karty, tlačidlá, fotky ---------- */
 .story-paths article,.story-price,.journal-card,.story-detail-choices>button,.story-care-description,.editorial-panel,.heritage-grid>div,.calc-home-promo,.reviews-grid .journal-card,.lspol .lspol-main{border-radius:var(--p-card)!important}
@@ -150,12 +157,14 @@ h2 em,.story-home h2 em{font-style:normal;color:#245742}
   .story-detail-choices>button{padding:18px 18px!important}
   .stats-band{margin-bottom:8px!important}
   .stats-journey{margin-bottom:8px}
-  .stats-journey-track{padding:18px 10px 16px;gap:4px}
-  .stats-journey-track:before{top:23px;left:calc(10px + (100% - 20px) / var(--n,5) / 2);right:calc(10px + (100% - 20px) / var(--n,5) / 2)}
-  .stats-journey-track li{padding-top:20px}
-  .stats-journey-track li b{font-size:22px}
-  .stats-journey-track li span{font-size:10px}
-  .stats-journey-track li.is-live span{font-size:9px;letter-spacing:.08em}
+  .stats-journey-top{flex-direction:column;align-items:center;gap:2px;text-align:center;margin-bottom:10px}
+  .stats-journey-note{text-align:center}
+  .stats-journey-chart{height:200px;padding:20px 12px 14px;gap:6px}
+  .stats-journey-chart:before{inset:auto 12px 44px}
+  .sj-bar{gap:6px}
+  .sj-bar b{font-size:20px}
+  .sj-bar span{font-size:10px}
+  .sj-bar.is-live span{font-size:9px;letter-spacing:.08em}
   .stats-band span:not(.stats-sep){flex-basis:auto!important;font-size:12px;padding:8px 12px}
   .film-topline span:last-child{text-align:right;max-width:45%}
   .footer{padding:40px 22px 18px!important}
