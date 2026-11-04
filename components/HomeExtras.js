@@ -5,12 +5,12 @@ import { useEffect } from 'react'
 // Obe časti sa vykreslia len vtedy, keď majú overené dáta; pri chybe alebo prázdnej odpovedi ostanú skryté.
 
 const L = {
-  sk: { since: 'Od roku {y}', cities: '{n} mestá: {list}', growth: '{b} → {n} apartmánov od januára {y}', tip: 'Stav k {d}. Rastieme každý mesiac.', rating: 'Ø {r} z 5 podľa hostí', guests: '{n}+ hostí privítaných', reviewsEyebrow: 'Hostia', reviewsTitle: 'Čo hovoria hostia' },
-  en: { since: 'Since {y}', cities: '{n} cities: {list}', growth: '{b} → {n} apartments since January {y}', tip: 'As of {d}. Growing every month.', rating: 'Ø {r} out of 5 from guests', guests: '{n}+ guests welcomed', reviewsEyebrow: 'Guests', reviewsTitle: 'What guests say' },
-  de: { since: 'Seit {y}', cities: '{n} Städte: {list}', growth: '{b} → {n} Apartments seit Januar {y}', tip: 'Stand {d}. Wir wachsen jeden Monat.', rating: 'Ø {r} von 5 laut Gästen', guests: '{n}+ Gäste empfangen', reviewsEyebrow: 'Gäste', reviewsTitle: 'Das sagen unsere Gäste' },
-  es: { since: 'Desde {y}', cities: '{n} ciudades: {list}', growth: '{b} → {n} apartamentos desde enero de {y}', tip: 'Datos a {d}. Crecemos cada mes.', rating: 'Ø {r} de 5 según los huéspedes', guests: '{n}+ huéspedes recibidos', reviewsEyebrow: 'Huéspedes', reviewsTitle: 'Lo que dicen los huéspedes' },
-  pl: { since: 'Od {y} roku', cities: '{n} miasta: {list}', growth: '{b} → {n} apartamentów od stycznia {y}', tip: 'Stan na {d}. Rośniemy co miesiąc.', rating: 'Ø {r} na 5 według gości', guests: '{n}+ powitanych gości', reviewsEyebrow: 'Goście', reviewsTitle: 'Co mówią goście' },
-  cz: { since: 'Od roku {y}', cities: '{n} města: {list}', growth: '{b} → {n} apartmánů od ledna {y}', tip: 'Stav k {d}. Rosteme každý měsíc.', rating: 'Ø {r} z 5 podle hostů', guests: '{n}+ přivítaných hostů', reviewsEyebrow: 'Hosté', reviewsTitle: 'Co říkají hosté' },
+  sk: { origin: 'LIVE-IN od roku {y} ({c})', since: 'Na Slovensku od januára {y}', cities: '{n} mestá: {list}', growth: '{b} → {n} apartmánov od januára {y}', tip: 'Stav k {d}. Rastieme každý mesiac.', rating: 'Ø {r} z 5 podľa hostí', guests: '{n}+ hostí privítaných', reviewsEyebrow: 'Hostia', reviewsTitle: 'Čo hovoria hostia' },
+  en: { origin: 'LIVE-IN since {y} ({c})', since: 'In Slovakia since January {y}', cities: '{n} cities: {list}', growth: '{b} → {n} apartments since January {y}', tip: 'As of {d}. Growing every month.', rating: 'Ø {r} out of 5 from guests', guests: '{n}+ guests welcomed', reviewsEyebrow: 'Guests', reviewsTitle: 'What guests say' },
+  de: { origin: 'LIVE-IN seit {y} ({c})', since: 'In der Slowakei seit Januar {y}', cities: '{n} Städte: {list}', growth: '{b} → {n} Apartments seit Januar {y}', tip: 'Stand {d}. Wir wachsen jeden Monat.', rating: 'Ø {r} von 5 laut Gästen', guests: '{n}+ Gäste empfangen', reviewsEyebrow: 'Gäste', reviewsTitle: 'Das sagen unsere Gäste' },
+  es: { origin: 'LIVE-IN desde {y} ({c})', since: 'En Eslovaquia desde enero de {y}', cities: '{n} ciudades: {list}', growth: '{b} → {n} apartamentos desde enero de {y}', tip: 'Datos a {d}. Crecemos cada mes.', rating: 'Ø {r} de 5 según los huéspedes', guests: '{n}+ huéspedes recibidos', reviewsEyebrow: 'Huéspedes', reviewsTitle: 'Lo que dicen los huéspedes' },
+  pl: { origin: 'LIVE-IN od {y} roku ({c})', since: 'Na Słowacji od stycznia {y}', cities: '{n} miasta: {list}', growth: '{b} → {n} apartamentów od stycznia {y}', tip: 'Stan na {d}. Rośniemy co miesiąc.', rating: 'Ø {r} na 5 według gości', guests: '{n}+ powitanych gości', reviewsEyebrow: 'Goście', reviewsTitle: 'Co mówią goście' },
+  cz: { origin: 'LIVE-IN od roku {y} ({c})', since: 'Na Slovensku od ledna {y}', cities: '{n} města: {list}', growth: '{b} → {n} apartmánů od ledna {y}', tip: 'Stav k {d}. Rosteme každý měsíc.', rating: 'Ø {r} z 5 podle hostů', guests: '{n}+ přivítaných hostů', reviewsEyebrow: 'Hosté', reviewsTitle: 'Co říkají hosté' },
 }
 const LOCALE = { sk: 'sk-SK', en: 'en-GB', de: 'de-DE', es: 'es-ES', pl: 'pl-PL', cz: 'cs-CZ' }
 
@@ -44,7 +44,8 @@ async function renderStats(holder, lang) {
   try { cfg = await getJson('/stats.json', { cache: 'no-cache' }) } catch (e) { return }
   if (!cfg || typeof cfg !== 'object') return
   const items = []
-  if (isNum(cfg.founded)) items.push({ text: fill(t.since, { y: cfg.founded }) })
+  if (isNum(cfg.origin_year)) items.push({ text: fill(t.origin, { y: cfg.origin_year, c: ({ sk: 'Londýn', en: 'London', de: 'London', es: 'Londres', pl: 'Londyn', cz: 'Londýn' })[lang] || cfg.origin_city || 'Londýn' }) })
+  if (isNum(cfg.slovakia_since)) items.push({ text: fill(t.since, { y: cfg.slovakia_since }) })
   if (Array.isArray(cfg.cities) && cfg.cities.length) items.push({ text: fill(t.cities, { n: cfg.cities.length, list: cfg.cities.join(', ') }) })
   // živý počet apartmánov: iba agregát z koncového bodu, nikdy natvrdo
   let live = null
