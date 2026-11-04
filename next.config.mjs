@@ -49,7 +49,11 @@ const nextConfig = {
   async headers() {
     return [
       { source: '/assets/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=604800, immutable' }] },
-      { source: '/motion/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=3600' }] },
+      { source: '/motion/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }] },
+      { source: '/lead/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }] },
+      { source: '/liquid.js', headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }] },
+      { source: '/livein-analytics.js', headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }] },
+      { source: '/stats.json', headers: [{ key: 'Cache-Control', value: 'public, max-age=300, stale-while-revalidate=3600' }] },
     ]
   },
 }

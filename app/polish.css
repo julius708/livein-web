@@ -122,6 +122,25 @@ h2 em,.story-home h2 em{font-style:normal;color:#245742}
 .sj-bar.is-goal b{color:#B84A08;opacity:.75}
 .sj-bar.is-goal span{color:#B84A08;letter-spacing:.06em}
 
+/* ---------- liquid glass: odlesk sledujúci kurzor, jemné nadvihnutie, dotykový stlačený stav ---------- */
+@media(hover:hover) and (pointer:fine){
+  .lg-sheen{position:relative}
+  .lg-sheen::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .4s ease;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),#ffffffa6,#ffffff2e 38%,transparent 62%);mix-blend-mode:soft-light}
+  .lg-sheen:hover::after{opacity:1}
+  .story-care-description.lg-sheen::after,.lspol-main.lg-sheen::after{background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),#ffffff40,#ffffff12 40%,transparent 64%);mix-blend-mode:normal}
+  .story-paths article,.journal-card,.stats-journey-chart,.calc-home-promo,.story-price,.editorial-panel,.heritage-grid>div,.stats-band span:not(.stats-sep){transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s cubic-bezier(.2,.7,.2,1),border-color .3s}
+  .story-paths article:hover,.stats-journey-chart:hover,.calc-home-promo:hover,.story-price:hover,.editorial-panel:hover,.heritage-grid>div:hover{transform:translateY(-4px);box-shadow:var(--lg-shadow-hover),0 34px 70px -34px #173e2c66;border-color:#fff}
+  .stats-band span:not(.stats-sep):hover{transform:translateY(-2px);box-shadow:var(--lg-shadow-hover)}
+}
+.btn:active,.story-detail-choices>button:active,.film-chapters button:active{transform:scale(.97)!important;transition-duration:.08s}
+.motion-off .lg-sheen::after,.motion-off .story-paths article:hover,.motion-off .journal-card:hover{display:none}
+@media(prefers-reduced-motion:reduce){.lg-sheen::after{display:none}}
+
+/* prehliadač fotografií a mobilné menu: zaoblenie a čitateľnosť */
+.photo-viewer img{border-radius:20px!important}
+.photo-viewer button{border-radius:999px}
+@media(max-width:900px){.mobile-nav.open{background:rgba(18,52,36,.88)!important}}  /* tmavé sklo menu: čitateľné aj bez podpory backdrop-filter */
+
 /* ---------- karty, tlačidlá, fotky ---------- */
 .story-paths article,.story-price,.journal-card,.story-detail-choices>button,.story-care-description,.editorial-panel,.heritage-grid>div,.calc-home-promo,.reviews-grid .journal-card,.lspol .lspol-main{border-radius:var(--p-card)!important}
 .story-paths{gap:20px}

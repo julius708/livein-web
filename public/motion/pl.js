@@ -94,7 +94,7 @@ function setupCinema(){const root=main.querySelector('.film-journey');if(!root)r
  stage.dataset.displayedScene='0';
  first.dataset.filmClip='0';
  // Keep each decoder/source alive; never replace src during a scene transition.
- first.preload=motionEnabled&&!navigator.connection?.saveData?'auto':'none';
+ first.preload=motionEnabled&&!navigator.connection?.saveData&&matchMedia('(min-width:900px)').matches?'auto':'none';
  [['film/sky-bedroom.mp4','thirring/skypark1-spalna-vyhlad.webp'],['film/eurovea.mp4','thirring/eurovea-obyvacka.webp']].forEach((clip,i)=>{
   const v=first.cloneNode(false);v.dataset.filmClip=String(i+1);v.poster='/assets/'+clip[1];v.src='/assets/'+clip[0];v.classList.remove('playing');v.setAttribute('aria-hidden','true');first.before(v);
  });
@@ -103,7 +103,7 @@ function updateCinema(){const root=main.querySelector('.film-journey');if(!root|
 
 let ambientObserver=null;
 function ambientButton(v){return v.closest('[data-ambient-panel]')?.querySelector('[data-ambient-toggle]')}
-function ambientAllowed(v){const stage=v.closest('.film-stage');return (!stage||v.dataset.filmClip===stage.dataset.scene||v.dataset.filmClip===stage.dataset.displayedScene)&&motionEnabled&&!document.hidden&&v.isConnected&&v.dataset.visible==='true'&&v.dataset.userPaused!=='true'&&v.dataset.autoplayBlocked!=='true'&&(!navigator.connection?.saveData||v.dataset.manual==='true')}
+function ambientAllowed(v){const stage=v.closest('.film-stage');return (!stage||v.dataset.filmClip===stage.dataset.scene||v.dataset.filmClip===stage.dataset.displayedScene)&&motionEnabled&&!document.hidden&&v.isConnected&&v.dataset.visible==='true'&&v.dataset.userPaused!=='true'&&v.dataset.autoplayBlocked!=='true'&&((!navigator.connection?.saveData&&matchMedia('(min-width:900px)').matches)||v.dataset.manual==='true')}
 function ambientLabel(v,playing){const b=ambientButton(v);if(b){b.textContent=playing?"Wstrzymaj ujęcie Ⅱ":"Odtwórz ujęcie ▷";b.setAttribute('aria-pressed',String(playing))}const label=v.closest('.film-stage')?.querySelector('.film-label');if(label)label.textContent="Zdjęcie animowane · Higgsfield"}
 function revealAmbient(v,ticket){
  const reveal=()=>{

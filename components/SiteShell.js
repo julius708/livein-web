@@ -38,6 +38,7 @@ export default function SiteShell({ lang, route, kind, children }) {
       <Script src={`/lead/lead-form.${lang}.js`} strategy="afterInteractive" />
       <Script src="https://livin-asistent-dun.vercel.app/widget.js" strategy="lazyOnload" />
       <Script src="/livein-analytics.js" strategy="lazyOnload" />
+      <Script src="/liquid.js" strategy="lazyOnload" />
     </>
   )
 }

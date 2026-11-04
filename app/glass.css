@@ -1,7 +1,7 @@
 /* LIVE-IN liquid glass – vrstva nad pôvodným dizajnom hlavnej stránky (2026-11-02).
    Zjednocuje web s appkou: písmo Figtree, zelená #173E2C, oranžová #F46D16, sklené plochy, mäkké tiene. */
 :root{
-  --font:'Figtree',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --font:var(--font-figtree),'Figtree',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   --ink:#1f2a24;--muted:#58665D;--line:#dce2d9;--paper:#F8FAF5;--sand:#eef2ea;
   --orange:#F46D16;--accent:#B84A08;--brand-green:#173E2C;--brand-orange-text:#B84A08;--brand-cream:#F6F2EA;
   --lg-surface:rgba(255,254,251,.76);--lg-green:rgba(18,52,36,.9);--lg-radius:30px;--lg-small:19px;
