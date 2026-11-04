@@ -11,8 +11,27 @@
   "rating": null,
   "guests": null,
   "portfolio": {
-    "enabled": false,
+    "enabled": true,
     "endpoint": "https://lumshjqwpffhtcejzaac.supabase.co/functions/v1/portfolio-count",
-    "_comment": "Po nasadení Supabase Edge Function portfolio-count (a potvrdení BASELINE_COUNT = 69) prepnúť enabled na true. Kým je false, živý počet sa nenačítava a nevzniká 404 v konzole."
-  }
+    "_comment": "Živý počet apartmánov zo Supabase Edge Function portfolio-count (PORTFOLIO_FILTER=active, BASELINE_COUNT=69 k januáru 2026). Nasadená 4. 11. 2026."
+  },
+  "milestones": [
+    {
+      "label": "01/2023",
+      "count": 0
+    },
+    {
+      "label": "2023",
+      "count": 15
+    },
+    {
+      "label": "2024",
+      "count": 25
+    },
+    {
+      "label": "2025",
+      "count": 69
+    }
+  ],
+  "_comment_milestones": "Míľniky cesty na Slovensku (historické počty apartmánov v správe ku koncu roka; 01/2023 = štart s nulou). Aktuálny bod „Dnes“ sa dopĺňa výhradne zo živého koncového bodu portfolio.endpoint."
 }

@@ -49,7 +49,7 @@ h2 em,.story-home h2 em{font-style:normal;color:#245742}
 .story-care{margin-top:0!important;margin-bottom:var(--p-gutter)!important}
 .story-archive{margin-top:0!important}
 .story-estate{margin-top:var(--p-gutter)!important}
-.story-final{margin-top:0!important;margin-bottom:var(--p-gutter)!important}
+.story-final,.story-final.office-background{width:auto!important;max-width:none!important;margin-top:0!important;margin-bottom:var(--p-gutter)!important}
 .footer{margin-top:0!important;margin-bottom:var(--p-gutter)!important;border-radius:var(--p-panel)!important}
 .calc-home-promo{margin:var(--p-section) auto 0!important}
 .journal-home{padding-bottom:var(--p-section)!important}
@@ -66,6 +66,19 @@ h2 em,.story-home h2 em{font-style:normal;color:#245742}
 .stats-band .stats-sep{display:none}
 .stats-band .stats-live{border-bottom:0!important;color:#173E2C!important}
 .stats-band .stats-live b{color:#B84A08}
+
+/* cesta s míľnikmi pod pásom faktov */
+.stats-journey{max-width:1280px;margin:0 auto 28px;padding:0 var(--p-gutter)}
+.story-home .stats-journey-head,.stats-journey-head{font-size:var(--p-kicker)!important;font-weight:700!important;letter-spacing:.16em!important;text-transform:uppercase;color:#4F6657;text-align:center;margin:0 0 14px;line-height:1.5}
+.stats-journey-track{list-style:none;margin:0 auto;max-width:980px;padding:24px 28px 22px;display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:8px;position:relative;border-radius:var(--p-card);background:linear-gradient(125deg,#ffffff70,transparent),var(--lg-surface);border:1px solid #ffffffb3;box-shadow:var(--lg-shadow)}
+.stats-journey-track:before{content:'';position:absolute;top:29px;left:calc(28px + (100% - 56px) / var(--n,5) / 2);right:calc(28px + (100% - 56px) / var(--n,5) / 2);height:2px;background:linear-gradient(90deg,#173e2c2e,#173e2c66 70%,#B84A08);border-radius:2px}
+.stats-journey-track li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding-top:22px;min-width:0}
+.stats-journey-track li:before{content:'';position:absolute;top:0;width:12px;height:12px;border-radius:50%;background:#173E2C;border:2px solid #fff;box-shadow:0 0 0 2px #173e2c22;box-sizing:border-box}
+.stats-journey-track li b{font-weight:600;font-size:clamp(26px,2.6vw,36px);line-height:1;letter-spacing:-.04em;color:#173E2C;font-variant-numeric:tabular-nums}
+.stats-journey-track li span{font-size:12px;font-weight:600;color:var(--p-soft);letter-spacing:.02em}
+.stats-journey-track li.is-live:before{background:#B84A08;box-shadow:0 0 0 3px #b84a0826,0 0 0 8px #b84a0810}
+.stats-journey-track li.is-live b{color:#B84A08}
+.stats-journey-track li.is-live span{color:#B84A08;text-transform:uppercase;letter-spacing:.12em;font-size:11px}
 
 /* ---------- karty, tlačidlá, fotky ---------- */
 .story-paths article,.story-price,.journal-card,.story-detail-choices>button,.story-care-description,.editorial-panel,.heritage-grid>div,.calc-home-promo,.reviews-grid .journal-card,.lspol .lspol-main{border-radius:var(--p-card)!important}
@@ -136,6 +149,13 @@ h2 em,.story-home h2 em{font-style:normal;color:#245742}
   .story-price{padding:24px 22px}
   .story-detail-choices>button{padding:18px 18px!important}
   .stats-band{margin-bottom:8px!important}
+  .stats-journey{margin-bottom:8px}
+  .stats-journey-track{padding:18px 10px 16px;gap:4px}
+  .stats-journey-track:before{top:23px;left:calc(10px + (100% - 20px) / var(--n,5) / 2);right:calc(10px + (100% - 20px) / var(--n,5) / 2)}
+  .stats-journey-track li{padding-top:20px}
+  .stats-journey-track li b{font-size:22px}
+  .stats-journey-track li span{font-size:10px}
+  .stats-journey-track li.is-live span{font-size:9px;letter-spacing:.08em}
   .stats-band span:not(.stats-sep){flex-basis:auto!important;font-size:12px;padding:8px 12px}
   .film-topline span:last-child{text-align:right;max-width:45%}
   .footer{padding:40px 22px 18px!important}
