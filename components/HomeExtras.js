@@ -5,12 +5,12 @@ import { useEffect } from 'react'
 // Obe časti sa vykreslia len vtedy, keď majú overené dáta; pri chybe alebo prázdnej odpovedi ostanú skryté.
 
 const L = {
-  sk: { journey: 'Naša cesta od januára 2023', unit: 'Apartmány v správe', asof: 'stav k {d}', today: 'Dnes', origin: 'LIVE-IN od roku {y} ({c})', since: 'Na Slovensku od januára {y}', cities: '{n} mestá: {list}', growth: '{b} → {n} apartmánov od januára {y}', tip: 'Stav k {d}. Rastieme každý mesiac.', rating: 'Ø {r} z 5 podľa hostí', guests: '{n}+ hostí privítaných', reviewsEyebrow: 'Hostia', reviewsTitle: 'Čo hovoria hostia' },
-  en: { journey: 'Our journey since January 2023', unit: 'Apartments under management', asof: 'as of {d}', today: 'Today', origin: 'LIVE-IN since {y} ({c})', since: 'In Slovakia since January {y}', cities: '{n} cities: {list}', growth: '{b} → {n} apartments since January {y}', tip: 'As of {d}. Growing every month.', rating: 'Ø {r} out of 5 from guests', guests: '{n}+ guests welcomed', reviewsEyebrow: 'Guests', reviewsTitle: 'What guests say' },
-  de: { journey: 'Unser Weg seit Januar 2023', unit: 'Apartments in Verwaltung', asof: 'Stand {d}', today: 'Heute', origin: 'LIVE-IN seit {y} ({c})', since: 'In der Slowakei seit Januar {y}', cities: '{n} Städte: {list}', growth: '{b} → {n} Apartments seit Januar {y}', tip: 'Stand {d}. Wir wachsen jeden Monat.', rating: 'Ø {r} von 5 laut Gästen', guests: '{n}+ Gäste empfangen', reviewsEyebrow: 'Gäste', reviewsTitle: 'Das sagen unsere Gäste' },
-  es: { journey: 'Nuestro camino desde enero de 2023', unit: 'Apartamentos gestionados', asof: 'datos a {d}', today: 'Hoy', origin: 'LIVE-IN desde {y} ({c})', since: 'En Eslovaquia desde enero de {y}', cities: '{n} ciudades: {list}', growth: '{b} → {n} apartamentos desde enero de {y}', tip: 'Datos a {d}. Crecemos cada mes.', rating: 'Ø {r} de 5 según los huéspedes', guests: '{n}+ huéspedes recibidos', reviewsEyebrow: 'Huéspedes', reviewsTitle: 'Lo que dicen los huéspedes' },
-  pl: { journey: 'Nasza droga od stycznia 2023', unit: 'Apartamenty w zarządzaniu', asof: 'stan na {d}', today: 'Dziś', origin: 'LIVE-IN od {y} roku ({c})', since: 'Na Słowacji od stycznia {y}', cities: '{n} miasta: {list}', growth: '{b} → {n} apartamentów od stycznia {y}', tip: 'Stan na {d}. Rośniemy co miesiąc.', rating: 'Ø {r} na 5 według gości', guests: '{n}+ powitanych gości', reviewsEyebrow: 'Goście', reviewsTitle: 'Co mówią goście' },
-  cz: { journey: 'Naše cesta od ledna 2023', unit: 'Apartmány ve správě', asof: 'stav k {d}', today: 'Dnes', origin: 'LIVE-IN od roku {y} ({c})', since: 'Na Slovensku od ledna {y}', cities: '{n} města: {list}', growth: '{b} → {n} apartmánů od ledna {y}', tip: 'Stav k {d}. Rosteme každý měsíc.', rating: 'Ø {r} z 5 podle hostů', guests: '{n}+ přivítaných hostů', reviewsEyebrow: 'Hosté', reviewsTitle: 'Co říkají hosté' },
+  sk: { goal: 'Cieľ {y}', journey: 'Naša cesta od januára 2023', unit: 'Apartmány v správe', asof: 'stav k {d}', today: 'Dnes', origin: 'LIVE-IN od roku {y} ({c})', since: 'Na Slovensku od januára {y}', cities: '{n} mestá: {list}', growth: '{b} → {n} apartmánov od januára {y}', tip: 'Stav k {d}. Rastieme každý mesiac.', rating: 'Ø {r} z 5 podľa hostí', guests: '{n}+ hostí privítaných', reviewsEyebrow: 'Hostia', reviewsTitle: 'Čo hovoria hostia' },
+  en: { goal: 'Goal {y}', journey: 'Our journey since January 2023', unit: 'Apartments under management', asof: 'as of {d}', today: 'Today', origin: 'LIVE-IN since {y} ({c})', since: 'In Slovakia since January {y}', cities: '{n} cities: {list}', growth: '{b} → {n} apartments since January {y}', tip: 'As of {d}. Growing every month.', rating: 'Ø {r} out of 5 from guests', guests: '{n}+ guests welcomed', reviewsEyebrow: 'Guests', reviewsTitle: 'What guests say' },
+  de: { goal: 'Ziel {y}', journey: 'Unser Weg seit Januar 2023', unit: 'Apartments in Verwaltung', asof: 'Stand {d}', today: 'Heute', origin: 'LIVE-IN seit {y} ({c})', since: 'In der Slowakei seit Januar {y}', cities: '{n} Städte: {list}', growth: '{b} → {n} Apartments seit Januar {y}', tip: 'Stand {d}. Wir wachsen jeden Monat.', rating: 'Ø {r} von 5 laut Gästen', guests: '{n}+ Gäste empfangen', reviewsEyebrow: 'Gäste', reviewsTitle: 'Das sagen unsere Gäste' },
+  es: { goal: 'Objetivo {y}', journey: 'Nuestro camino desde enero de 2023', unit: 'Apartamentos gestionados', asof: 'datos a {d}', today: 'Hoy', origin: 'LIVE-IN desde {y} ({c})', since: 'En Eslovaquia desde enero de {y}', cities: '{n} ciudades: {list}', growth: '{b} → {n} apartamentos desde enero de {y}', tip: 'Datos a {d}. Crecemos cada mes.', rating: 'Ø {r} de 5 según los huéspedes', guests: '{n}+ huéspedes recibidos', reviewsEyebrow: 'Huéspedes', reviewsTitle: 'Lo que dicen los huéspedes' },
+  pl: { goal: 'Cel {y}', journey: 'Nasza droga od stycznia 2023', unit: 'Apartamenty w zarządzaniu', asof: 'stan na {d}', today: 'Dziś', origin: 'LIVE-IN od {y} roku ({c})', since: 'Na Słowacji od stycznia {y}', cities: '{n} miasta: {list}', growth: '{b} → {n} apartamentów od stycznia {y}', tip: 'Stan na {d}. Rośniemy co miesiąc.', rating: 'Ø {r} na 5 według gości', guests: '{n}+ powitanych gości', reviewsEyebrow: 'Goście', reviewsTitle: 'Co mówią goście' },
+  cz: { goal: 'Cíl {y}', journey: 'Naše cesta od ledna 2023', unit: 'Apartmány ve správě', asof: 'stav k {d}', today: 'Dnes', origin: 'LIVE-IN od roku {y} ({c})', since: 'Na Slovensku od ledna {y}', cities: '{n} města: {list}', growth: '{b} → {n} apartmánů od ledna {y}', tip: 'Stav k {d}. Rosteme každý měsíc.', rating: 'Ø {r} z 5 podle hostů', guests: '{n}+ přivítaných hostů', reviewsEyebrow: 'Hosté', reviewsTitle: 'Co říkají hosté' },
 }
 const LOCALE = { sk: 'sk-SK', en: 'en-GB', de: 'de-DE', es: 'es-ES', pl: 'pl-PL', cz: 'cs-CZ' }
 
@@ -46,8 +46,18 @@ function renderJourney(holder, cfg, live, lang, t) {
   if (old) old.remove()
   if (ms.length < 2) return
   const nodes = ms.map(m => ({ label: m.label, count: m.count }))
-  if (live) nodes.push({ label: t.today, count: live.count, live: true, from: nodes[nodes.length - 1].count })
-  const max = Math.max(1, ...nodes.map(n => n.count))
+  // ročné míľniky od 2026 prichádzajú z koncového bodu (denné snímky), takže po Novom roku sa minulý rok doplní sám
+  if (live && Array.isArray(live.history)) {
+    for (const h of live.history) {
+      if (h && isNum(h.year) && isNum(h.count) && !nodes.some(n => n.label === String(h.year))) nodes.push({ label: String(h.year), count: h.count })
+    }
+  }
+  if (live) nodes.push({ label: t.today + ' · ' + (isNum(live.year) ? live.year : new Date().getFullYear()), count: live.count, live: true, from: nodes[nodes.length - 1].count })
+  const g = cfg.goal && isNum(cfg.goal.year) ? cfg.goal : null
+  const goalCount = g && isNum(g.count) && g.count > 0 ? g.count : null
+  if (g) nodes.push({ label: fill(t.goal, { y: g.year }), count: goalCount, goal: true })
+  const known = nodes.filter(n => isNum(n.count)).map(n => n.count)
+  const max = Math.max(1, ...known, g && !goalCount ? Math.round(Math.max(...known) * 1.3) : 0)
   const box = document.createElement('section'); box.className = 'stats-journey'; box.setAttribute('aria-label', t.journey)
   const top = document.createElement('div'); top.className = 'stats-journey-top'
   const head = document.createElement('p'); head.className = 'stats-journey-head'; head.textContent = t.journey
@@ -58,9 +68,9 @@ function renderJourney(holder, cfg, live, lang, t) {
   const chart = document.createElement('ol'); chart.className = 'stats-journey-chart'
   chart.style.setProperty('--n', String(nodes.length)); chart.style.setProperty('--max', String(max))
   nodes.forEach((n, i) => {
-    const li = document.createElement('li'); li.className = 'sj-bar' + (n.live ? ' is-live' : '')
-    li.style.setProperty('--v', String(n.count)); li.style.setProperty('--i', String(i))
-    const b = document.createElement('b'); b.textContent = fmt(n.count, lang)
+    const li = document.createElement('li'); li.className = 'sj-bar' + (n.live ? ' is-live' : '') + (n.goal ? ' is-goal' : '')
+    li.style.setProperty('--v', String(isNum(n.count) ? n.count : max)); li.style.setProperty('--i', String(i))
+    const b = document.createElement('b'); b.textContent = isNum(n.count) ? fmt(n.count, lang) : '+'
     const track = document.createElement('div'); track.className = 'sj-track'
     const bar = document.createElement('i'); bar.setAttribute('aria-hidden', 'true'); track.appendChild(bar)
     const sp = document.createElement('span'); sp.textContent = n.label

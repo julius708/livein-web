@@ -1,4 +1,4 @@
-> Aktualizácia 4. 11. 2026: konkrétne zoznamy miest boli z webu odstránené (pôsobíme po celom Slovensku; hero má animovanú cestu Bratislava → Košice → ďalej). Nižšie uvedené staršie znenia už neplatia.
+> Aktualizácia 4. 11. 2026: mestá v správe sú Bratislava, Trnava, Prešov a Košice (v hero ako animovaná cesta s pokračovaním „ďalšie mestá“); pás faktov nezobrazuje zoznam miest. Nižšie uvedené staršie znenia s mestami už neplatia.
 
 # Úprava textov a obsahu webu live-in.international (vetva `web-texty-2026-11`)
 

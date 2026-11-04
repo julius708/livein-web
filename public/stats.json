@@ -29,6 +29,11 @@
       "count": 69
     }
   ],
-  "_comment_milestones": "Míľniky cesty na Slovensku (historické počty apartmánov v správe ku koncu roka; 01/2023 = štart s nulou). Aktuálny bod „Dnes“ sa dopĺňa výhradne zo živého koncového bodu portfolio.endpoint.",
-  "_comment_cities": "Zoznam miest sa na webe nezobrazuje (pôsobíme po celom Slovensku; v hero je cesta Bratislava → Košice → ďalej)."
+  "_comment_milestones": "Historické míľniky (01/2023 = štart s nulou, potom stav ku koncu roka 2023–2025). Roky od 2026 dopĺňa automaticky Edge Function portfolio-count z denných snímok (portfolio_snapshots), bod „Dnes“ je živý počet.",
+  "_comment_cities": "Mestá v správe sú v hero ako cesta Bratislava → Trnava → Prešov → Košice → ďalšie mestá; pilulka so zoznamom miest sa nezobrazuje (cities = []).",
+  "goal": {
+    "year": 2027,
+    "count": null,
+    "_comment": "Cieľový stĺpec v grafe rastu. count = null → zobrazí sa len čiarkovaný stĺpec „Cieľ 2027“ bez čísla; po doplnení čísla sa zobrazí aj hodnota."
+  }
 }
