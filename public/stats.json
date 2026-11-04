@@ -3,11 +3,7 @@
   "origin_year": 2018,
   "origin_city": "Londýn",
   "slovakia_since": 2023,
-  "cities": [
-    "Bratislava",
-    "Košice",
-    "Trnava"
-  ],
+  "cities": [],
   "rating": null,
   "guests": null,
   "portfolio": {
@@ -33,5 +29,6 @@
       "count": 69
     }
   ],
-  "_comment_milestones": "Míľniky cesty na Slovensku (historické počty apartmánov v správe ku koncu roka; 01/2023 = štart s nulou). Aktuálny bod „Dnes“ sa dopĺňa výhradne zo živého koncového bodu portfolio.endpoint."
+  "_comment_milestones": "Míľniky cesty na Slovensku (historické počty apartmánov v správe ku koncu roka; 01/2023 = štart s nulou). Aktuálny bod „Dnes“ sa dopĺňa výhradne zo živého koncového bodu portfolio.endpoint.",
+  "_comment_cities": "Zoznam miest sa na webe nezobrazuje (pôsobíme po celom Slovensku; v hero je cesta Bratislava → Košice → ďalej)."
 }

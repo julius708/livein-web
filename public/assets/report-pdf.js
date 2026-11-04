@@ -178,7 +178,7 @@
       fitted(metricValues[i], x + 4, 117, 48, 14, { bold: true });
     }
     text(t.profile, 16, 131, 10, { bold: true });
-    const city = { bratislava: 'Bratislava', kosice: 'Košice', trnava: 'Trnava' }[clean(profile.city).toLowerCase()] || clean(profile.city);
+    const city = { bratislava: 'Bratislava', kosice: 'Košice' }[clean(profile.city).toLowerCase()] || clean(profile.city);
     const settingsKeys = { 'Centrum': 'center', 'V centre': 'center', 'center': 'center', 'centre': 'center', 'Mimo centra': 'outside', 'outside': 'outside', 'Komfortný': 'comfort', 'comfort': 'comfort', 'Prémiový': 'premium', 'premium': 'premium', 'Základný': 'basic', 'basic': 'basic' };
     const setting = value => t.settings[settingsKeys[clean(value)]] || clean(value);
     const profileLine = [city, t.bedrooms + ': ' + clean(profile.bedrooms), t.area + ': ' + clean(profile.area) + ' m²', t.guests + ': ' + clean(profile.guests)].join('  ·  ');

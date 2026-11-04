@@ -1,3 +1,5 @@
+> Aktualizácia 4. 11. 2026: konkrétne zoznamy miest boli z webu odstránené (pôsobíme po celom Slovensku; hero má animovanú cestu Bratislava → Košice → ďalej). Nižšie uvedené staršie znenia už neplatia.
+
 # Úprava textov a obsahu webu live-in.international (vetva `web-texty-2026-11`)
 
 Stav 4. 11. 2026. Nič z tejto vetvy nie je nasadené na produkciu; náhľad je Vercel preview vetvy.
@@ -29,12 +31,12 @@ Dizajn, layout, branding, animácie, galéria, video, Adam, logika formulárov a
 
 | Miesto | Pôvodný text | Nový text |
 |---|---|---|
-| Hero, podnadpis (aj scéna 01) | Vy ste mu dali podobu. My mu pomôžeme nájsť miesto v každodennom živote hostí. | Správa krátkodobých prenájmov v Bratislave, Košiciach a Trnave. Od prvého kroku po každodennú starostlivosť. |
-| Hero, horný riadok | Správa prenájmov / Bratislava · Košice | Správa prenájmov / Bratislava · Košice · Trnava |
+| Hero, podnadpis (aj scéna 01) | Vy ste mu dali podobu. My mu pomôžeme nájsť miesto v každodennom živote hostí. | Správa krátkodobých prenájmov v Bratislave a Košiciach a. Od prvého kroku po každodennú starostlivosť. |
+| Hero, horný riadok | Správa prenájmov / Bratislava · Košice | Správa prenájmov / Bratislava · Košice |
 | Hero, popis videa | Animovaná fotografia · Higgsfield | (odstránené; tlačidlo „Prehrať animovaný záber ▷“ ostáva) |
 | Sekcia „Na chvíľu spomaľte“ | Vlastná fotografia LIVE-IN animovaná v Higgsfielde. | (odstránené; tlačidlo „Prehrať záber ▷“ ostáva) |
 | aria-label videí | Animácia … vytvorená v Higgsfielde | Animovaný záber z apartmánu LIVE-IN |
-| Pod úvodom (nové) | – | Od roku 2018 · 3 mestá: Bratislava, Košice, Trnava · [69 → N apartmánov od januára 2026, živé] |
+| Pod úvodom (nové) | – | Od roku 2018 · 3 mestá: Bratislava, Košice, (mesto odstránené) · [69 → N apartmánov od januára 2026, živé] |
 | Detail, zdroj fotky | Obývacia časť · Fotografia · thirring.sk pre LIVE-IN | Obývacia časť · Foto: thirring.sk |
 | Detail, poznámka | Výber ukazuje rôzne interiéry. Fotografie nepredstavujú súvislú prehliadku jedného bytu ani zoznam dostupných ponúk. | Apartmány v správe LIVE-IN. Foto: thirring.sk |
 | Starostlivosť, kredit | Fotografia · thirring.sk pre LIVE-IN | Foto: thirring.sk |
@@ -54,7 +56,7 @@ Dizajn, layout, branding, animácie, galéria, video, Adam, logika formulárov a
 | Hlavička, tlačidlo | Posúdiť môj byt | Pre majiteľov (otvára formulár pre majiteľov) |
 | Hlavička a mobilné menu, položka | Ubytovanie | Pre hostí: rezervovať |
 | Pätička, tlačidlá | Rezervovať ubytovanie · Kontakt | Pre majiteľov · Pre hostí: rezervovať |
-| Meta description | (prázdne) | Správa krátkodobých prenájmov v Bratislave, Košiciach a Trnave. Od prvého kroku po každodennú starostlivosť. LIVE-IN International, od roku 2018. |
+| Meta description | (prázdne) | Správa krátkodobých prenájmov v Bratislave a Košiciach a. Od prvého kroku po každodennú starostlivosť. LIVE-IN International, od roku 2018. |
 | Formulár (modal) | – | nové nepovinné pole „Ide o:“ (Som majiteľ / Hosť / Iné), hodnota sa pridá na začiatok textu dopytu; odosielanie a GDPR súhlas bez zmeny |
 | Formulár, potvrdenie | Takto bude vyzerať potvrdenie po odoslaní. V prototype… | Ďakujeme. Váš dopyt sme prijali a ozveme sa Vám s ďalším krokom. |
 | /sprava, úvod | … Pomôžeme Vám porovnať možnosti a zvoliť rozsah správy pre konkrétnu nehnuteľnosť. | … Porovnáme s Vami možnosti a odporučíme rozsah správy pre Váš byt. |
@@ -74,10 +76,10 @@ Dizajn, layout, branding, animácie, galéria, video, Adam, logika formulárov a
 | /ceny, 17 % | … V konkrétnej ponuke vysvetlíme jej výpočet, dohodnutý rozsah a ďalšie náklady spojené s prevádzkou. | … V ponuke pre Váš byt vysvetlíme jej výpočet, rozsah služby a náklady spojené s prevádzkou. |
 | /ceny, dlhodobá | … pripravíme samostatnú cenovú ponuku. | … pripravíme samostatnú ponuku. |
 | /faq, garantovaný nájom | Možnosť fixného nájmu posudzujeme individuálne. Dostupnosť, výška a záväzky závisia od konkrétnej ponuky a dohody. | Pri vhodnej nehnuteľnosti vieme ponúknuť aj fixný nájom. Ide o samostatnú dohodu s vlastnými podmienkami, nie o súčasť bežnej správy. |
-| /faq, kde pôsobíte | Správu prenájmov predstavujeme pre Bratislavu a Košice. Pri inej lokalite nám pošlite dopyt; preveríme možnosti. | Správu prenájmov robíme v Bratislave, Košiciach a Trnave. Pri inej lokalite nám pošlite dopyt, preveríme možnosti. |
+| /faq, kde pôsobíte | Správu prenájmov predstavujeme pre Bratislavu a Košice. Pri inej lokalite nám pošlite dopyt; preveríme možnosti. | Správu prenájmov robíme v Bratislave a Košiciach a. Pri inej lokalite nám pošlite dopyt, preveríme možnosti. |
 | /faq, ako rýchlo | Termín závisí od pripravenosti bytu a dohodnutého rozsahu. Konkrétny plán si stanovíme po posúdení. | Záleží na pripravenosti bytu a rozsahu služby. Konkrétny plán si stanovíme po posúdení bytu. |
-| /kontakt | Správa nehnuteľností: Bratislava a Košice. | Správa nehnuteľností: Bratislava, Košice a Trnava. + dva riadky smerovania (hosť → ústredňa → zákaznícky servis; majiteľ → rovnaký kontakt → tím pre nové spolupráce) |
-| /onas | … v Bratislave a Košiciach. / … do Bratislavy a Košíc. | … v Bratislave, Košiciach a Trnave. / … do Bratislavy, Košíc a Trnavy. |
+| /kontakt | Správa nehnuteľností: Bratislava a Košice. | Správa nehnuteľností: Bratislava a Košice a. + dva riadky smerovania (hosť → ústredňa → zákaznícky servis; majiteľ → rovnaký kontakt → tím pre nové spolupráce) |
+| /onas | … v Bratislave a Košiciach. / … do Bratislavy a Košíc. | … v Bratislave a Košiciach a. / … do Bratislavy a Košíc a. |
 
 Kontakty ostali: info@live-in.international, +421 2 3233 9005, Čermeľská cesta 3, Košice. Osobné číslo ani WhatsApp nepribudli.
 „Konkrétny rozsah a zodpovednosti si nastavíme pred začiatkom spolupráce.“ ostáva raz (sekcia Za dobrým pobytom).
@@ -86,12 +88,12 @@ Kontakty ostali: info@live-in.international, +421 2 3233 9005, Čermeľská cest
 
 | Miesto | Pôvodný text | Nový text |
 |---|---|---|
-| Title | Rental management and real estate services \| LIVE-IN International | Short-term rental management in Bratislava, Košice and Trnava \| LIVE-IN International |
-| Meta description | (prázdne) | Short-term rental management in Bratislava, Košice and Trnava, from the first step to everyday care. LIVE-IN International, since 2018. |
+| Title | Rental management and real estate services \| LIVE-IN International | Short-term rental management in Bratislava a Košice and \| LIVE-IN International |
+| Meta description | (prázdne) | Short-term rental management in Bratislava a Košice and, from the first step to everyday care. LIVE-IN International, since 2018. |
 | Hlavička, tlačidlo | Assess my apartment | For owners |
 | Menu | Counseling office / Accommodation | Guides / For guests: book a stay |
-| Hero | You gave it form. We will help him find a place in the everyday life of the guests. | Short-term rental management in Bratislava, Košice and Trnava, from the first step to everyday care. |
-| Hero, horný riadok | Space for life / Lease management, Bratislava · Košice | Space for living / Rental management, Bratislava · Košice · Trnava |
+| Hero | You gave it form. We will help him find a place in the everyday life of the guests. | Short-term rental management in Bratislava a Košice and, from the first step to everyday care. |
+| Hero, horný riadok | Space for life / Lease management, Bratislava · Košice | Space for living / Rental management, Bratislava · Košice |
 | Hero, kapitola 03 | Caring | Care |
 | Hero, popis videa | Animated photo · Higgsfield | (odstránené) |
 | Scény filmu | The place where / remains. · Behind the scene · Own LIVE-IN interiors… · Lease management from preparation to billing. With the range that we agree… | A place where / you want to stay. · Behind the scenes · LIVE-IN interiors, ready for the next stay. · Rental management from preparation to the monthly statement, with a scope we agree for your apartment. |
@@ -108,7 +110,7 @@ Kontakty ostali: info@live-in.international, +421 2 3233 9005, Čermeľská cest
 | Formulár | Let's start with the interview / Introduce us to your apartment. / Send us basic data. We will use them… / City of real estate / I want to advise / Send an inquiry / súhlas / potvrdenie | Let’s start a conversation / Tell us about your apartment. / Send us the basics. We use them only to handle your enquiry. / City of the property / I’d like advice / Send enquiry / I agree to my details being used to handle this enquiry… / Thank you. We have received your enquiry… + nové pole „Regarding: I’m an owner / Guest / Other“ |
 | FAQ (home) | … he needs suitable equipment … / Possibilities of personal use will be agreed… | … it needs suitable furnishing and equipment … / Personal use is agreed in advance… (všetky 4 odpovede prepísané) |
 | Názvy stránok | Prices and range / How cooperation works / Apartment assessment and enquiry form / Accommodation for guests / Let's start with the interview. / A good lease starts… / články | Prices and scope / How it works / Apartment assessment / Book a stay / Let’s start a conversation. / Good renting starts with understanding. / An apartment ready for its first guest. · Short-term or long-term letting? · Your first short-term let in Bratislava. · What to prepare before handing your apartment over to management. · Fewer things. A better-prepared apartment. · AI designs the mood. We check the reality. |
-| /sprava, /kratkodoba, /dlhodoba, /ceny, /postup, /kontakt, /hostia, /faq, /onas, /posudenie | strojový preklad (napr. „Explore the counseling center“, „Back to the introduction“, „Agree on the management of a long-term lease“, „How much does short term management cost?“) | ručne prepísané odseky podľa SK zmien; „Back to home“, „Explore the guides“, „Arrange long-term management“, „Fixed rent“ blok a „Not sure which model to choose?“ podľa zadania, kontakt so smerovaním, Trnava doplnená |
+| /sprava, /kratkodoba, /dlhodoba, /ceny, /postup, /kontakt, /hostia, /faq, /onas, /posudenie | strojový preklad (napr. „Explore the counseling center“, „Back to the introduction“, „Agree on the management of a long-term lease“, „How much does short term management cost?“) | ručne prepísané odseky podľa SK zmien; „Back to home“, „Explore the guides“, „Arrange long-term management“, „Fixed rent“ blok a „Not sure which model to choose?“ podľa zadania, kontakt so smerovaním, (mesto odstránené) doplnená |
 
 ## Čo ostalo / čo musí doplniť majiteľ
 

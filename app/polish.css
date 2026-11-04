@@ -87,6 +87,25 @@ h2 em,.story-home h2 em{font-style:normal;color:#245742}
 .sj-bar.is-live span{color:#B84A08;text-transform:uppercase;letter-spacing:.12em;font-size:11px}
 @media(prefers-reduced-motion:reduce){.sj-bar i{transition:none;transform:none}}
 
+/* ---------- hero: cesta Bratislava → Košice → ďalej (horný pravý štítok) ---------- */
+.film-topline{align-items:center}
+.film-topline .film-route{display:inline-flex;align-items:center;gap:10px;max-width:none!important;text-align:left;font-family:var(--font);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#F6F2EA;white-space:nowrap;line-height:1}
+.fr-city{color:#F6F2EA}.film-topline .film-route span:before{content:none!important}
+.fr-line{position:relative;display:block;width:var(--fr-len,118px);height:1px;background:#FFB782;clip-path:inset(0 100% 0 0);animation:fr-draw 1.2s cubic-bezier(.2,.7,.2,1) .2s forwards}
+.fr-line:after{content:'';position:absolute;right:0;top:-3px;width:5px;height:5px;border-top:1px solid #FFB782;border-right:1px solid #FFB782;transform:rotate(45deg)}
+.fr-start{position:absolute;left:-1px;top:-3px;width:7px;height:7px;border-radius:50%;background:#FFB782;box-shadow:0 0 10px #ffb78299}
+.fr-stop{position:absolute;top:-2px;width:5px;height:5px;border-radius:50%;background:#F46D16;box-shadow:0 0 8px #f46d16aa;opacity:0;transform:scale(.3);animation:fr-pop .45s cubic-bezier(.2,.7,.2,1) forwards}
+.fr-stop:nth-of-type(2){left:28%;animation-delay:.55s}.fr-stop:nth-of-type(3){left:52%;animation-delay:.8s}.fr-stop:nth-of-type(4){left:76%;animation-delay:1.05s}
+.fr-more{position:relative;display:block;width:var(--fr-more,34px);height:1px;background:repeating-linear-gradient(90deg,#FFB782 0 5px,transparent 5px 10px);opacity:0;animation:fr-fade .5s ease-out 1.4s forwards}
+.fr-more:after{content:'';position:absolute;right:0;top:-3px;width:5px;height:5px;border-top:1px solid #FFB782;border-right:1px solid #FFB782;transform:rotate(45deg)}
+@keyframes fr-draw{to{clip-path:inset(0 0 0 0)}}
+@keyframes fr-pop{to{opacity:1;transform:scale(1)}}
+@keyframes fr-fade{to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.fr-line,.fr-stop,.fr-more{animation:none}.fr-line{clip-path:none}.fr-stop{opacity:1;transform:none}.fr-more{opacity:1}}
+.motion-off .fr-line,.motion-off .fr-stop,.motion-off .fr-more{animation:none}.motion-off .fr-line{clip-path:none}.motion-off .fr-stop{opacity:1;transform:none}.motion-off .fr-more{opacity:1}
+@media(max-width:900px){.film-topline .film-route{font-size:9px;letter-spacing:.12em;gap:7px;--fr-len:76px;--fr-more:24px}}
+@media(max-width:600px){.film-topline{flex-direction:column;align-items:flex-start;gap:10px}.film-topline span:last-child{max-width:none}.film-topline .film-route{font-size:9px;--fr-len:70px;--fr-more:22px}}
+
 /* ---------- karty, tlačidlá, fotky ---------- */
 .story-paths article,.story-price,.journal-card,.story-detail-choices>button,.story-care-description,.editorial-panel,.heritage-grid>div,.calc-home-promo,.reviews-grid .journal-card,.lspol .lspol-main{border-radius:var(--p-card)!important}
 .story-paths{gap:20px}
