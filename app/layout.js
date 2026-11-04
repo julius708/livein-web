@@ -1,6 +1,7 @@
 import './site-base.css'
 import './glass.css'
 import './web.css'
+import './polish.css'
 
 export const metadata = {
   metadataBase: new URL('https://live-in.international'),

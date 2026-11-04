@@ -1,0 +1,152 @@
+/* LIVE-IN – zjednotenie dizajnu (2026-11): jeden rytmus sekcií, jedna škála nadpisov, jeden popisok,
+   jedno zaoblenie pre panely / karty / fotky, jedna farba textu. Načítava sa ako posledná vrstva. */
+:root{
+  --p-ink:#1f2a24;--p-muted:#58665D;--p-soft:#7a877f;--p-line:#173e2c1f;
+  --p-panel:36px;--p-card:28px;--p-photo:22px;--p-pill:999px;
+  --p-gutter:16px;--p-section:clamp(72px,8vw,104px);--p-panel-pad:clamp(48px,6vw,80px);
+  --p-kicker:11px;--p-h2:clamp(40px,5.2vw,72px);--p-h2-small:clamp(32px,3.8vw,52px);--p-h3:clamp(22px,2vw,26px);
+  --p-dark-text:#D8E3D9;--p-dark-muted:#A9BCB0;--p-peach:#F7B98A;
+}
+
+/* ---------- typografia ---------- */
+body{color:var(--p-ink)}
+h1,h2,h3,.story-home h1,.story-home h2,.story-home h3,.section-head h2,.feature h2,.cta h2,.chapter-intro h2,.subhero h1,.office-heading h2{font-family:var(--font);font-weight:600;letter-spacing:-.035em;text-wrap:balance}
+h3,.story-home h3{font-weight:650;letter-spacing:-.025em}
+.film-title,.hero h1{font-weight:550;letter-spacing:-.045em}
+/* hlavné kapitoly úvodu */
+.story-home h2,.story-detail-heading h2,.story-selection-heading h2,.story-care-heading h2,.story-estate h2,.soft-interlude h2,.story-final h2{font-size:var(--p-h2)!important;line-height:1.02!important;letter-spacing:-.04em;margin:0}
+/* vedľajšie sekcie úvodu a podstránky */
+.story-archive .section-head h2,.calc-home-promo h2,.calc-home-promo h3,.journal-heading h2,.reviews-home h2,.subhero h1,.content-page h2,.reading h2,.office-heading h2{font-size:var(--p-h2-small)!important;line-height:1.08!important;letter-spacing:-.035em}
+.story-paths h3{font-size:clamp(30px,3.2vw,44px)!important;line-height:1.05;letter-spacing:-.035em}
+.story-detail-choices h3,.story-care-description h3,.journal-copy h3,.story-home .journal-copy h3,.content-page h3,.heritage-grid h3,.editorial-panel h3{font-size:var(--p-h3)!important;line-height:1.25}
+h2 em,.story-home h2 em{font-style:normal;color:#245742}
+.story-care-heading h2 em,.soft-interlude h2 em{color:var(--p-peach)}
+/* odseky: jedna sivozelená, jeden riadkový register */
+.story-detail-heading>p,.story-selection-heading>p,.story-detail-choices p,.story-paths p,.story-price p,.story-estate p,.story-final>div:last-child p,.calc-home-promo p,.journal-copy p,.journal-heading p,.section-head p,.story-archive-note,.story-estate figcaption,.content-page p,.content-page li,.heritage-grid p,.editorial-panel p{color:var(--p-muted)}
+.story-detail-heading>p,.story-selection-heading>p,.story-paths p,.story-estate p,.calc-home-promo p,.journal-heading p,.section-head p,.story-final>div:last-child p{font-size:17px;line-height:1.7}
+.story-detail-choices p,.story-price p,.journal-copy p{font-size:15px;line-height:1.65}
+.story-archive-note,.story-estate figcaption,.small{font-size:13px;line-height:1.6;color:var(--p-soft)}
+/* popisky sekcií (kicker / eyebrow): jeden štýl */
+.eyebrow,.story-section-kicker,.story-paths article>span,.story-price>div>span,.story-care-description>span:first-child,.film-label-small,.journal-copy>span,.calc-home-promo .eyebrow{font-size:var(--p-kicker)!important;font-weight:700!important;letter-spacing:.16em!important;text-transform:uppercase;line-height:1.5}
+.eyebrow,.story-section-kicker,.story-paths article>span,.story-price>div>span,.journal-copy>span{color:#4F6657!important}
+.story-section-kicker{border-top:1px solid var(--p-line);padding-top:20px!important;gap:24px}
+.story-section-kicker>span:last-child{color:var(--p-soft)!important;font-weight:600!important}
+.story-care .story-section-kicker,.soft-interlude .eyebrow,.story-care-description>span:first-child,.film-label-small,.story-final.office-background .eyebrow{color:var(--p-dark-text)!important}
+.story-care .story-section-kicker>span:last-child{color:var(--p-dark-muted)!important}
+.film-label-small{color:#ffd1ad!important}
+.story-care-description>span:first-child{color:var(--p-peach)!important}
+
+/* ---------- kontajner a rytmus sekcií ---------- */
+.wrap{max-width:1280px;padding-left:clamp(20px,4vw,48px);padding-right:clamp(20px,4vw,48px)}
+.story-home .story-detail,.story-home .story-selection,.story-estate,.journal-home,.story-archive .portfolio-section{padding-top:var(--p-section)!important;padding-bottom:var(--p-section)!important}
+.story-care{padding:var(--p-panel-pad) 0!important}
+.story-detail-heading,.story-selection-heading{padding:32px 0 44px!important;gap:48px}
+.story-care-heading{padding:32px 0 36px!important}
+/* panely na celú šírku: rovnaký bočný odstup a zaoblenie */
+.story-care,.story-archive,.story-estate,.story-final,.soft-interlude,.film-stage,.footer{margin-left:var(--p-gutter)!important;margin-right:var(--p-gutter)!important;border-radius:var(--p-panel)!important}
+.film-journey{margin:0}
+.soft-interlude{margin-top:0!important;margin-bottom:var(--p-gutter)!important}
+.story-care{margin-top:0!important;margin-bottom:var(--p-gutter)!important}
+.story-archive{margin-top:0!important}
+.story-estate{margin-top:var(--p-gutter)!important}
+.story-final{margin-top:0!important;margin-bottom:var(--p-gutter)!important}
+.footer{margin-top:0!important;margin-bottom:var(--p-gutter)!important;border-radius:var(--p-panel)!important}
+.calc-home-promo{margin:var(--p-section) auto 0!important}
+.journal-home{padding-bottom:var(--p-section)!important}
+.story-estate{background:linear-gradient(125deg,#1c3b2ff5,#382d25ed)!important;border:1px solid #ffffff33!important;box-shadow:inset 0 1px 0 #ffffff26,0 24px 60px -30px #173e2c80!important}
+.story-estate h2{color:#fff9f0!important}.story-estate h2 em{color:var(--p-peach)!important}.story-estate p{color:var(--p-dark-text)!important}.story-estate .eyebrow{color:var(--p-peach)!important}
+.story-final.office-background h2{color:#fff9f0!important}.story-final.office-background h2 em{color:var(--p-peach)!important}.story-final.office-background>div:last-child p{color:var(--p-dark-text)!important}
+.story-archive{background:linear-gradient(160deg,#e6ece1,#edf1e9)!important;border:1px solid #ffffffb3;box-shadow:inset 0 1px 0 #fff}
+.story-care,.soft-interlude{border:1px solid #ffffff33!important;box-shadow:inset 0 1px 0 #ffffff26,0 24px 60px -30px #173e2c80!important}
+/* prechod z filmu do obsahu: tenký riadok s nápovedou + pás s faktami ako jeden celok */
+.film-scroll-hint{padding:22px var(--p-gutter) 10px!important;border-bottom:0!important;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--p-soft)}
+.film-scroll-hint button{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#173E2C}
+.stats-band{margin:4px auto 24px!important;gap:8px 10px!important;padding:0 var(--p-gutter)!important}
+.stats-band span:not(.stats-sep){display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:var(--p-pill);background:linear-gradient(125deg,#ffffff70,transparent),var(--lg-surface);border:1px solid #ffffffb3;box-shadow:var(--lg-shadow);font-size:13px;font-weight:600;color:#173E2C;letter-spacing:0;line-height:1.3}
+.stats-band .stats-sep{display:none}
+.stats-band .stats-live{border-bottom:0!important;color:#173E2C!important}
+.stats-band .stats-live b{color:#B84A08}
+
+/* ---------- karty, tlačidlá, fotky ---------- */
+.story-paths article,.story-price,.journal-card,.story-detail-choices>button,.story-care-description,.editorial-panel,.heritage-grid>div,.calc-home-promo,.reviews-grid .journal-card,.lspol .lspol-main{border-radius:var(--p-card)!important}
+.story-paths{gap:20px}
+.story-paths article{padding:36px 36px 32px;background:linear-gradient(125deg,#ffffff80,transparent),var(--lg-surface);border:1px solid #ffffffb3;box-shadow:var(--lg-shadow)}
+.story-price{margin-top:20px;padding:32px 36px;background:linear-gradient(125deg,#ffffff60,transparent),#e9efe6;border:1px solid #ffffffb3}
+.story-price strong{font-weight:600;letter-spacing:-.05em;font-size:clamp(56px,6vw,84px)!important;color:#173E2C}
+.story-price strong span{font-size:.5em}
+.story-price .pending{font-size:12px;line-height:1.6;color:#7a4a1f;background:#fff5ea;border:1px solid #f3dcc6;border-radius:14px}
+.story-paths-link{margin:22px 4px 0!important;font-size:15px}
+.story-paths-link a{font-weight:650;border-bottom:1px solid #173e2c66;transition:border-color .18s,color .18s}
+.story-paths-link a:hover{border-color:#173E2C}
+.story-detail-choices>button{padding:22px 22px!important;min-height:0!important;border:1px solid transparent!important;background:#ffffff66!important;transition:background .25s,border-color .25s,transform .25s}
+.story-detail-choices>button[aria-pressed=true]{background:linear-gradient(125deg,#ffffff80,transparent),var(--lg-surface)!important;border-color:#ffffffb3!important;box-shadow:var(--lg-shadow)}
+.story-detail-choices>button>span{font-size:11px;font-weight:700;color:var(--p-soft);margin-top:4px}
+.journal-card,.reviews-grid .journal-card{background:linear-gradient(125deg,#ffffff70,transparent),var(--lg-surface);border:1px solid #ffffffb3;box-shadow:var(--lg-shadow)}
+.journal-grid{gap:20px}
+.journal-copy{padding:24px 26px 28px}
+.journal-copy b{font-weight:700;color:#173E2C}
+.btn,.story-paths .btn,.cinema-content .btn,.film-center .btn,.calc-actions .btn,.reading .btn{min-height:50px;padding:0 22px;font-size:15px;font-weight:700;letter-spacing:-.01em}
+.top .wrap.nav>.btn{min-height:44px;height:44px!important}
+.actions{gap:12px}
+/* fotografie a média: jedno zaoblenie */
+.story-detail-image,.story-estate img,.story-estate figure,.portfolio-photo,.expanded-portfolio .portfolio-photo,.story-care-photo,.journal-image,.subpage-photos img,.subpage-photos figure,.chapter-photo img{border-radius:var(--p-photo)!important;overflow:hidden}
+.story-estate figure{border:1px solid #ffffffb3;box-shadow:0 20px 50px -28px #173e2c66}
+.story-archive .expanded-portfolio{gap:14px;grid-auto-rows:clamp(180px,22vw,260px)!important}
+.story-archive .expanded-portfolio .portfolio-photo{height:100%!important;min-height:0}
+@media(min-width:1180px){.story-archive .expanded-portfolio{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:230px}}
+.photo-caption{font-size:12px}
+.section-head{margin-bottom:36px;align-items:end}
+
+/* ---------- podstránky ---------- */
+.subhero{padding:56px 0 36px!important}
+.subhero p{color:var(--p-muted);font-size:17px}
+.subpage-photos{margin-bottom:var(--p-section)!important}
+.content-page{padding-bottom:var(--p-section)!important}
+.content-page h3{margin-top:36px}
+.content-page p,.content-page li{max-width:74ch}
+.editorial-panel,.heritage-grid>div{background:linear-gradient(125deg,#ffffff70,transparent),var(--lg-surface)!important;border:1px solid #ffffffb3;box-shadow:var(--lg-shadow);padding:32px}
+.heritage-grid strong{color:#B84A08;font-weight:650;letter-spacing:-.04em}
+.contact-routing{margin-top:14px;padding:14px 16px;border-radius:16px;background:#ffffff80;border:1px solid #ffffffb3;color:var(--p-muted)!important;font-size:13px!important}
+
+/* ---------- podmienky spolupráce: rovnaké písmo a nadpisy ako zvyšok webu ---------- */
+.lspol{font-family:var(--font)!important}
+.lspol h1,.lspol h2{font-weight:600;letter-spacing:-.035em}
+.lspol h1 em,.lspol h2 em{font-family:inherit;font-style:normal;font-weight:600;color:#245742}
+.lspol h1{font-size:var(--p-h2)!important;line-height:1.02}
+
+/* ---------- pätička ---------- */
+.footer{padding:56px 48px 22px!important}
+.footer p{font-size:13px;line-height:1.7;color:var(--p-muted)}
+.footer h3{font-size:12px!important;letter-spacing:.14em;text-transform:uppercase;color:#4F6657!important;font-weight:700!important;margin:12px 0 18px}
+.footer a,.footer button{font-size:14px;color:var(--p-ink);margin:10px 0;font-weight:500}
+.footer-bottom{border-top:1px solid var(--p-line);margin-top:36px;padding-top:20px;font-size:12px;color:var(--p-soft)}
+
+/* ---------- tmavé panely: text ---------- */
+.story-care-heading p,.soft-interlude p,.story-care-description p{color:var(--p-dark-text)!important}
+.story-care-description .story-care-footnote{color:var(--p-dark-muted)!important}
+.soft-interlude-copy{padding:var(--p-panel-pad) clamp(28px,5vw,64px) 24px}
+.soft-interlude-bottom{padding:0 clamp(28px,5vw,64px) clamp(28px,4vw,40px)}
+
+/* ---------- mobil ---------- */
+@media(max-width:900px){
+  :root{--p-panel:28px;--p-card:22px;--p-photo:18px;--p-gutter:10px;--p-section:56px;--p-panel-pad:44px;--p-h2:clamp(36px,10vw,46px);--p-h2-small:clamp(28px,8vw,34px)}
+  .wrap{padding-left:20px;padding-right:20px}
+  .story-detail-heading,.story-selection-heading{padding:24px 0 28px!important}
+  .story-paths article{padding:26px 22px 24px}
+  .story-price{padding:24px 22px}
+  .story-detail-choices>button{padding:18px 18px!important}
+  .stats-band{margin-bottom:8px!important}
+  .stats-band span:not(.stats-sep){flex-basis:auto!important;font-size:12px;padding:8px 12px}
+  .film-topline span:last-child{text-align:right;max-width:45%}
+  .footer{padding:40px 22px 18px!important}
+  .section-head{margin-bottom:24px}
+}
+@media(max-width:600px){
+  .footer-cols{grid-template-columns:1fr!important;gap:30px!important}
+  .footer-cols>div:nth-child(2){display:grid;grid-template-columns:1fr 1fr;column-gap:18px;align-content:start}
+  .footer-cols>div:nth-child(2) h3{grid-column:1/-1}
+  .footer a,.footer button{margin:6px 0}
+  .story-section-kicker{font-size:10px!important;gap:16px}
+  .story-paths h3{font-size:32px!important}
+  .btn,.story-paths .btn,.film-center .btn{min-height:46px;font-size:14px;padding:0 18px}
+}

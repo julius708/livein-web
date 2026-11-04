@@ -1,6 +1,8 @@
 {
-  "_comment": "Číselný pás pod úvodom. Zobrazujú sa len vyplnené (overené) hodnoty; null sa nevykreslí. Počet apartmánov NIKDY nepísať sem, ide výhradne zo živého koncového bodu (portfolio.endpoint).",
-  "founded": 2018,
+  "_comment": "Číselný pás pod úvodom. Zobrazujú sa len vyplnené (overené) hodnoty; null sa nevykreslí. Počet apartmánov NIKDY nepísať sem, ide výhradne zo živého koncového bodu (portfolio.endpoint). LIVE-IN vzniklo v Londýne 2018, LIVE-IN International na Slovensku od januára 2023.",
+  "origin_year": 2018,
+  "origin_city": "Londýn",
+  "slovakia_since": 2023,
   "cities": [
     "Bratislava",
     "Košice",
