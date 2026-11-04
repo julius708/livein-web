@@ -3,6 +3,7 @@ import { LANGS, routes, resolveSlug, pageData, prefix, ASSETS } from '@/lib/site
 import SiteShell from '@/components/SiteShell'
 import Calculator from '@/components/Calculator'
 import PageEffects from '@/components/PageEffects'
+import HomeExtras from '@/components/HomeExtras'
 
 export const dynamicParams = false
 
@@ -45,6 +46,7 @@ export default async function Page({ params }) {
         <div dangerouslySetInnerHTML={{ __html: d.html }} />
       )}
       <PageEffects lang={r.lang} route={routeId} kind={d.kind} />
+      {d.kind === 'home' && <HomeExtras lang={r.lang} />}
     </SiteShell>
   )
 }

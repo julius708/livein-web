@@ -1,0 +1,11 @@
+{
+  "_comment": "Číselný pás pod úvodom. Zobrazujú sa len vyplnené (overené) hodnoty; null sa nevykreslí. Počet apartmánov NIKDY nepísať sem, ide výhradne zo živého koncového bodu (portfolio.endpoint).",
+  "founded": 2018,
+  "cities": ["Bratislava", "Košice", "Trnava"],
+  "rating": null,
+  "guests": null,
+  "portfolio": {
+    "enabled": true,
+    "endpoint": "https://lumshjqwpffhtcejzaac.supabase.co/functions/v1/portfolio-count"
+  }
+}

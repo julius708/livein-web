@@ -5,7 +5,7 @@
  form.addEventListener('reset',()=>{submissionId=null;submitted=false;lastPayload='';status.textContent='';button.disabled=false;button.textContent='Odoslať dopyt';});
  form.onsubmit=async e=>{
   e.preventDefault();if(busy||submitted||!form.reportValidity())return;
-  const data=new FormData(form),payload={form_type:data.get('service'),name:data.get('name'),email:data.get('email'),phone:data.get('phone'),city:data.get('city'),details:data.get('message'),website:data.get('website'),consent:data.get('consent')==='on'};
+  const data=new FormData(form),payload={form_type:data.get('service'),name:data.get('name'),email:data.get('email'),phone:data.get('phone'),city:data.get('city'),details:(data.get('about')?'['+"Ide o"+': '+data.get('about')+'] ':'')+(data.get('message')||''),website:data.get('website'),consent:data.get('consent')==='on'};
   const serialized=JSON.stringify(payload);
   if(lastPayload&&serialized!==lastPayload){status.textContent='Predchádzajúce odoslanie sa ešte nepodarilo potvrdiť. Kontaktujte nás na info@live-in.international.';return;}
   submissionId ||= crypto.randomUUID();payload.submission_id=submissionId;lastPayload=serialized;
