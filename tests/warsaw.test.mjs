@@ -50,3 +50,13 @@ test('východiskové scenáre sedia s tézou +20 až +30 % oproti dlhodobému n�
     assert.ok(u >= (district === 'other' ? 5 : 15) && u <= 40, `${bedrooms} spálne, ${district}: ${u} %`)
   }
 })
+import { r2rDefaults, r2rReturn, breakEvenOccupancy, maxRentFor, sensitivity } from '../lib/warsaw-calc.js'
+test('rent-to-rent: návratnosť, bod zvratu, maximálny nájom', () => {
+  const v = r2rDefaults(); const r = r2rReturn(v)
+  assert.ok(Math.abs(r.invest - (v.setup + r.rent * v.deposit)) < 0.01)
+  if (r.margin > 0) { assert.equal(r.payback, Math.ceil(r.invest / r.margin)); assert.ok(r.roi > 0) } else assert.equal(r.payback, null)
+  const be = breakEvenOccupancy(v); assert.ok(be === null || (be >= 0 && be <= 100))
+  if (be !== null && be > 0) assert.ok(r2rReturn({ ...v, occupancy: be - 1 }).margin < 0)
+  const mr = maxRentFor(v, 25); assert.ok(mr % 50 === 0); const chk = r2rReturn({ ...v, r2rRent: mr }); assert.ok(chk.marginPct >= 25 - 0.5)
+  const s = sensitivity(v); assert.equal(s.length, 4); assert.equal(s[0].cells.length, 3); assert.ok(s[3].cells[2].margin > s[0].cells[0].margin)
+})

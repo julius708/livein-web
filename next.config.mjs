@@ -17,6 +17,8 @@ const nextConfig = {
       { source: '/varsava', destination: '/varsava/kalkulacka', permanent: false },
       { source: '/warszawa', destination: '/pl/warszawa/kalkulator', permanent: false },
       { source: '/warsaw', destination: '/en/warsaw/calculator', permanent: false },
+      { source: '/varsava/agent', destination: '/varsava/sprava?agent=1', permanent: false },
+      { source: '/warszawa/agent', destination: '/pl/warszawa/zarzadzanie?agent=1', permanent: false },
     ]
     for (const l of langs) {
       r.push({ source: `/livein-release-20261013/${l}`, destination: `/${l}`, permanent: true })
