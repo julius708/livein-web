@@ -1,0 +1,55 @@
+/* Varšavská kalkulačka: dedí štýly .lcalc z calc.css, doplnky s prefixom .wcalc / .wc- */
+.wcalc header{grid-template-columns:1fr}
+.wc-top{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:0 0 22px;padding:14px 18px;background:#fff;border:1px solid #b7c8bb;border-radius:18px}
+.wc-top label{display:grid;gap:4px;font-size:13px}
+.wc-top select,.wc-top input{padding:9px 10px;border-radius:10px;font:inherit}
+.wcalc .control{margin:0 0 14px}
+.wcalc .control label{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14px}
+.wcalc .control label span{color:#465e50;font-weight:500}
+.wcalc .control label input{width:120px;text-align:right;padding:7px 9px;border-radius:10px}
+.wcalc .control input[type=range]{width:100%;margin-top:6px;accent-color:#F46D16}
+.wcalc details{margin-top:12px}
+.wcalc details summary{cursor:pointer;font-weight:700;padding:8px 0}
+.wc-check{display:flex;gap:8px;align-items:center;font-size:13.5px;margin-top:8px;font-weight:600}
+.wc-band{margin:12px 0;padding:10px 14px;border-radius:12px;font-size:14px;background:#eef3ec;border:1px solid #b7c8bb}
+.wc-band b{font-size:18px;margin-right:6px}
+.wc-band.ok{background:#e4f1e6;border-color:#173E2C;color:#173E2C}
+.wc-band.above{background:#fff3e8;border-color:#F46D16;color:#B84A08}
+.wc-band.below{background:#fff8e6;border-color:#d9a400;color:#6b5200}
+.wc-band.neg{background:#fde8e6;border-color:#c0392b;color:#8a1f14}
+.wc-table{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0 10px}
+.wc-table td,.wc-table th{padding:6px 4px;border-bottom:1px solid #e3e9e4;text-align:left;vertical-align:top}
+.wc-table td:last-child,.wc-table th:last-child{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.wc-table tr.sub td{font-weight:700;border-top:1px solid #b7c8bb}
+.wc-table tr.total td{font-weight:800;font-size:15.5px;color:#173E2C;border-bottom:2px solid #173E2C}
+.wc-cmp th{font-weight:700;color:#465e50;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em}
+.wc-cmp td:nth-child(n+2),.wc-cmp th:nth-child(n+2){text-align:right;white-space:nowrap}
+.wcalc .result h3{font-size:15px;margin:16px 0 4px}
+.wcalc .result .full{margin-top:14px}
+.wc-report{display:none}
+@media (max-width:760px){.wcalc .control label input{width:100px}.wc-top{grid-template-columns:1fr 1fr}}
+@media print{
+  @page{size:A4;margin:11mm 12mm 11mm}
+  body{background:#fff!important}
+  body>*:not(main),main>*:not(.lcalc),.wcalc .wrap,.motion-control,.skip,.scroll-progress,header.top,.mobile-nav,footer,.modal,.photo-viewer{display:none!important}
+  main,main#main{display:block!important;padding:0!important;margin:0!important}
+  .wcalc{background:#fff!important;color:#1F2A24!important;font:12px/1.45 Figtree,Geist,Arial,sans-serif!important}
+  .wc-report{display:block!important;color:#1F2A24}
+  .wc-report h1{font-size:19px;margin:4px 0 2px;color:#173E2C;line-height:1.15;letter-spacing:0;font-weight:800;word-spacing:normal}
+  .wc-report h2{font-size:12px;margin:10px 0 3px;color:#173E2C;text-transform:uppercase;letter-spacing:.05em}
+  .wc-report .eyebrow{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#B84A08;font-weight:700}
+  .wc-rhead{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border-bottom:2px solid #173E2C;padding-bottom:10px}
+  .wc-rhead p{margin:2px 0 0;color:#465e50}
+  .wc-rmeta{text-align:right;font-size:11px;color:#465e50;white-space:nowrap}
+  .wc-rgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;page-break-inside:avoid}
+  .wc-rbig{background:#173E2C;color:#fff;border-radius:14px;padding:10px 14px;margin-top:10px;display:grid;gap:2px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wc-rbig span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.85}
+  .wc-rbig b{font-size:28px;line-height:1.1}
+  .wc-rbig small{opacity:.85}
+  .wc-report .wc-table{font-size:11px;margin:2px 0 4px}
+  .wc-report .wc-table td,.wc-report .wc-table th{padding:3px 3px}
+  .wc-report ul{margin:4px 0;padding-left:18px}
+  .wc-report li{margin:1px 0}
+  .wc-report p{margin:3px 0}
+  .wc-fine{font-size:9.5px;color:#465e50;margin-top:8px;border-top:1px solid #e3e9e4;padding-top:6px}
+}

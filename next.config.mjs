@@ -13,6 +13,10 @@ const nextConfig = {
       { source: '/livein-release-20261013/live-in-assets/:path*', destination: '/assets/:path*', permanent: true },
       { source: '/vypocet', destination: '/kalkulacka', permanent: true },
       { source: '/kalkulacka/', destination: '/kalkulacka', permanent: true },
+      // Varšavská kalkulačka: krátke adresy na zdieľanie
+      { source: '/varsava', destination: '/varsava/kalkulacka', permanent: false },
+      { source: '/warszawa', destination: '/pl/warszawa/kalkulator', permanent: false },
+      { source: '/warsaw', destination: '/en/warsaw/calculator', permanent: false },
     ]
     for (const l of langs) {
       r.push({ source: `/livein-release-20261013/${l}`, destination: `/${l}`, permanent: true })
