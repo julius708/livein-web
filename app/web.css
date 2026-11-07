@@ -123,6 +123,8 @@ h1 em,h2 em{color:#245742}
 /* Odkaz „Preskočiť na obsah“ len pre klávesnicu a čítačky: na mobile sa nesmie objaviť (iOS ho po dotyku vedel zaostriť) */
 .skip{position:absolute!important;top:0!important;left:0!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;padding:0!important;margin:-1px}
 .skip:focus-visible{width:auto;height:auto;clip:auto;clip-path:none;top:8px!important;left:12px!important;padding:12px!important;margin:0;background:#fff;color:#173E2C;border-radius:12px;box-shadow:0 8px 24px #173e2c40}
+/* dotykové zariadenia: odkaz pre klávesnicu nemá zmysel a Safari ho po prepnutí jazyka omylom zaostrí */
+@media (pointer:coarse),(hover:none){.skip,.skip:focus-visible{display:none!important}}
 /* Nastavenia súkromia: v spodnom riadku pätičky */
 .footer-bottom #li-privacy{font:600 12px/1.2 inherit;color:#173E2C;background:#ffffff80;border:1px solid #173e2c33;border-radius:999px;margin-left:12px;vertical-align:middle}
 @media(max-width:700px){.footer-bottom{display:flex;flex-wrap:wrap;gap:8px;align-items:center}}
