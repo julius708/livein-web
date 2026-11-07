@@ -1,0 +1,117 @@
+/* LIVE-IN liquid glass – vrstva nad pôvodným dizajnom hlavnej stránky (2026-11-02).
+   Zjednocuje web s appkou: písmo Figtree, zelená #173E2C, oranžová #F46D16, sklené plochy, mäkké tiene. */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap');
+:root{
+  --font:'Figtree',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --ink:#1f2a24;--muted:#58665D;--line:#dce2d9;--paper:#F8FAF5;--sand:#eef2ea;
+  --orange:#F46D16;--accent:#B84A08;--brand-green:#173E2C;--brand-orange-text:#B84A08;--brand-cream:#F6F2EA;
+  --lg-surface:rgba(255,254,251,.76);--lg-green:rgba(18,52,36,.9);--lg-radius:30px;--lg-small:19px;
+  --lg-shadow:inset 0 1px 0 #fffffff2,inset 1px 0 0 #ffffffa6,inset 0 -1px 0 #173e2c0d,0 12px 32px -16px #173e2c40,0 2px 6px #173e2c06;
+  --lg-shadow-hover:inset 0 1px 0 #fff,0 18px 36px -18px #173e2c40;
+}
+html{scroll-padding-top:120px}
+body{font-family:var(--font);color:var(--ink);background-color:var(--paper);
+  background-image:radial-gradient(ellipse 70% 700px at 0% 0%,#c4d9c9bf,transparent 80%),radial-gradient(ellipse 55% 650px at 100% 400px,#f0d3bca6,transparent 80%),radial-gradient(ellipse 70% 650px at 20% 1100px,#dae5d4b3,transparent 80%),radial-gradient(ellipse 60% 700px at 90% 2200px,#f3dccab3,transparent 80%);
+  background-attachment:scroll;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.hero h1,.subhero h1,.calc-intro h1,.potential-intro h1,.realty-catalog h1,.estate-hero h1{font-family:var(--font);font-weight:750;letter-spacing:-.035em}
+h2{font-weight:750}
+h3{font-weight:700}
+p,li{line-height:1.65}
+.eyebrow{color:var(--accent);font-weight:800;letter-spacing:.13em}
+.eyebrow:before{background:var(--orange);border-radius:2px}
+
+/* ---------- hlavička ako v appke: sklený pás ---------- */
+.top,header.top.top,.top.scrolled{position:sticky;top:12px;z-index:40;width:calc(100% - 24px);margin:12px auto 0;border:1px solid #ffffff66;border-radius:28px;
+  background:linear-gradient(115deg,#ffffff26 0%,#ffffff04 48%,#ffffff12 100%),var(--lg-green)!important;border-color:#ffffff66!important;
+  box-shadow:inset 0 1px 0 #ffffff66,inset 0 -1px 0 #00000014,0 14px 36px -16px #173e2c99;
+  -webkit-backdrop-filter:blur(28px) saturate(145%);backdrop-filter:blur(28px) saturate(145%);border-bottom:0}
+.top .wrap{padding:0 18px 0 22px}
+.top .nav{height:68px;gap:14px}
+.top .logo{background:transparent;border:0;box-shadow:none;border-radius:0;height:44px;width:112px;padding:0;display:flex;align-items:center}
+/* biela verzia loga bez pozadia (rovnaká ako v appke), splýva so zeleným sklom */
+.top .logo img,.top.scrolled .logo img{content:url('/livein-release-20261013/live-in-assets/logo-white.png');width:112px!important;height:auto!important;max-width:none;filter:none;background:transparent}
+.mobile-nav .logo img{content:url('/livein-release-20261013/live-in-assets/logo-transparent.png')}
+.top .navlink,.top nav a,.top .nav>a:not(.btn):not(.logo){color:#F6F2EA;font-weight:600;font-size:14px;padding:9px 13px;border-radius:999px;text-decoration:none;transition:background .18s ease}
+.top .navlink:hover,.top nav a:hover{background:#ffffff1a}
+.top .navlink[aria-current=page]{background:linear-gradient(155deg,#fff,#e8ece4);color:#173E2C;box-shadow:inset 0 1px 0 #fff,0 3px 8px #09201526}
+.top .btn{padding:11px 18px;font-size:14px}
+.top .livein-language,.top select{background:#ffffff14;color:#F6F2EA;border:1px solid #ffffff33;border-radius:999px;padding:9px 32px 9px 14px;font:inherit;font-size:13px;font-weight:700;
+  appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23F6F2EA' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.top .livein-language option{color:#173E2C}
+.menu-toggle,.top .menu-toggle{border:1px solid #ffffff55;background:#ffffff1f;color:#F6F2EA!important;-webkit-text-fill-color:#F6F2EA!important;border-radius:999px;width:44px;height:44px;font-size:20px;line-height:1;display:grid;place-items:center}
+.mobile-nav{background:var(--lg-surface);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border:1px solid #ffffffb3;border-radius:26px;margin:8px 12px;box-shadow:var(--lg-shadow)}
+.mobile-nav .navlink{color:#173E2C;border-radius:14px}
+
+/* ---------- tlačidlá ako v appke ---------- */
+.btn{border-radius:999px;padding:14px 22px;font-weight:700;font-size:15px;letter-spacing:-.01em;gap:12px;border:1px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease}
+.btn:not(.line):not(.light):not(.orange),.btn:not(.line){background:linear-gradient(165deg,#245742,#173E2C 60%,#12301f);border-color:#2f6a51;color:#fff;box-shadow:inset 0 1px 0 #ffffff33,0 10px 24px -12px #173e2c99}
+.btn:not(.line):hover{background:linear-gradient(165deg,#2a634b,#1b4733 60%,#143524);transform:translateY(-2px);box-shadow:inset 0 1px 0 #ffffff40,0 16px 30px -14px #173e2c99}
+.btn.orange,.btn.cta-orange{background:linear-gradient(165deg,#ff8a3d,#F46D16 60%,#d95d0f);border-color:#ff9a57;color:#fff;box-shadow:inset 0 1px 0 #ffffff55,0 10px 24px -12px #f46d1699}
+.btn.line{background:linear-gradient(150deg,#ffffff8c,#ffffff3d);border-color:#ffffffcc;color:#173E2C;box-shadow:inset 0 1px 0 #ffffffd9,0 2px 6px -4px #173e2c33;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.btn.line:hover{background:linear-gradient(150deg,#fff,#ffffffb8);border-color:#fff;transform:translateY(-2px);box-shadow:var(--lg-shadow-hover)}
+.hero .btn.line,.soft-interlude .btn.line,.story-care .btn.line,.film-journey .btn.line{color:#F6F2EA;background:#ffffff18;border-color:#ffffff55}
+.hero .btn.line:hover{background:#ffffff2e}
+.text-btn{font-weight:700;color:#173E2C}
+
+/* ---------- sklené plochy ---------- */
+.section.sand,.cta,.calc-home-promo,.journal-card,.calc-block,.calc-results,.calc-summary,.potential-shell,.service,.section-head+.cards>*,.cards>*,.realty-catalog article,.realty-catalog .card,.story-estate .card,.journal-copy{
+  background:linear-gradient(125deg,#ffffff70,transparent),var(--lg-surface);border:1px solid #ffffffb3;border-radius:var(--lg-radius);box-shadow:var(--lg-shadow);
+  -webkit-backdrop-filter:blur(20px) saturate(125%);backdrop-filter:blur(20px) saturate(125%)}
+.section.sand{margin:0 5vw;padding:72px 0}
+.section.sand>.wrap{padding:0 40px}
+.calc-home-promo{padding:48px;margin:40px 0;border-top:0;border-bottom:0}
+.calc-home-promo.wrap{max-width:1280px}
+/* .route sú celé stránky (SPA), nie karty: priehľadné, aby bolo vidieť jemný gradient pozadia */
+.route{background:transparent!important}
+.cta{border-radius:34px;padding:56px;background:linear-gradient(125deg,#ffffff14,transparent 40%,#ffffff08),#173E2C;color:#F6F2EA;border:1px solid #ffffff40;box-shadow:inset 0 1px 0 #ffffff40,0 24px 60px -30px #173e2c99;position:relative;overflow:hidden;isolation:isolate;-webkit-backdrop-filter:none;backdrop-filter:none}
+.cta:after{content:'';position:absolute;z-index:-1;width:310px;height:310px;right:-85px;top:-150px;border-radius:50%;border:1px solid #ffffff47;box-shadow:0 0 0 28px #ffffff08,0 0 0 29px #ffffff26,0 0 0 65px #f46d160d,0 0 0 66px #f46d1626;pointer-events:none}
+.cta h2,.cta p{color:#F6F2EA}.cta p{color:#D8E3D9}
+.cta .btn:not(.line){background:linear-gradient(165deg,#ff8a3d,#F46D16 60%,#d95d0f);border-color:#ff9a57;box-shadow:inset 0 1px 0 #ffffff55,0 10px 24px -12px #f46d1699}
+
+/* hero a tmavé sekcie: sklený lem */
+.hero,.soft-interlude,.story-care,.film-journey,.story-final.office-background{border-radius:34px;border:1px solid #ffffff40;box-shadow:inset 0 1px 0 #ffffff33,0 24px 60px -30px #173e2c99}
+.hero{overflow:hidden;margin:12px 12px 0}
+.story-care{margin:0 12px}
+.film-journey{border-radius:0;border:0;box-shadow:none}
+.journal-card,.calc-block{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+@media(hover:hover) and (pointer:fine){.journal-card:hover,.cards>*:hover{transform:translateY(-3px);border-color:#fff;box-shadow:var(--lg-shadow-hover)}}
+
+/* ---------- kalkulačka ---------- */
+.calc-results{padding:26px;top:104px}
+.calc-block{padding:24px;margin-bottom:16px}
+input,select,textarea,.calc-fields input,.potential-fields input{border-radius:var(--lg-small);border:1px solid #173e2c26;background:#ffffffb8;padding:13px 16px;font:inherit;font-size:16px;box-shadow:inset 0 2px 3px #173e2c05,0 1px 0 #fff;color:var(--ink);transition:border-color .18s ease,box-shadow .18s ease}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#173E2C;box-shadow:0 0 0 4px #173e2c1a}
+.calc-number{font-family:var(--font);font-weight:800;letter-spacing:-.03em;color:#173E2C}
+.calc-value,.calc-total{font-weight:800;color:#173E2C}
+.calc-step-heading{font-weight:750}
+.calc-zero-btn,.calc-mode button,.calc-method button,.potential-switch button,.calc-period button{border-radius:999px;border:1px solid #cfd8cb;background:#f6f8f3;color:#173E2C;font:inherit;font-weight:600;padding:9px 14px;cursor:pointer}
+.calc-mode button[aria-pressed=true],.calc-method button[aria-pressed=true],.potential-switch button[aria-pressed=true],.calc-period button[aria-pressed=true]{background:#173E2C;color:#fff;border-color:#173E2C}
+.calc-note,.calc-local-note,.potential-footnote{color:var(--muted)}
+.calc-status{border-radius:14px}
+
+/* ---------- pätička ---------- */
+.footer{border-top:0;margin:60px 12px 12px;padding:48px 40px 20px;border-radius:34px;background:linear-gradient(125deg,#ffffff70,transparent),var(--lg-surface);border:1px solid #ffffffb3;box-shadow:var(--lg-shadow)}
+.footer a:hover{color:var(--accent)}
+.footer h3{color:#173E2C}
+
+/* ---------- drobnosti ---------- */
+.motion-control{border-radius:999px;border:1px solid #ffffffb3;background:var(--lg-surface);color:#173E2C;font:inherit;font-weight:700;box-shadow:var(--lg-shadow)}
+::selection{background:#F46D1633}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #A8420B;outline-offset:3px}
+
+@media(max-width:900px){
+  .top,header.top.top,.top.scrolled{top:8px;width:calc(100% - 16px);margin-top:8px;border-radius:24px}
+  .top .nav{height:62px}
+  .hero{margin:8px 8px 0;border-radius:28px}
+  .section.sand{margin:0 8px;padding:48px 0;border-radius:26px}
+  .section.sand>.wrap{padding:0 20px}
+  .cta{padding:34px 26px;border-radius:28px}
+  .calc-home-promo{padding:28px 22px}
+  .footer{margin:40px 8px 8px;padding:32px 22px 16px;border-radius:26px}
+  .story-care{margin:0 8px;border-radius:28px}
+}
+@media(prefers-reduced-motion:reduce){.btn,.journal-card{transition:none}}
+@media(prefers-reduced-transparency:reduce),(prefers-contrast:more){:root{--lg-surface:#FFFEFB;--lg-green:#173E2C}.top,.section.sand,.cta,.calc-results,.footer,.btn.line{-webkit-backdrop-filter:none;backdrop-filter:none}}
+
+/* hlavný obsah dostáva programovo fokus pri prepnutí stránky: bez oranžového rámu okolo celej stránky */
+main:focus,main:focus-visible,main.route-enter:focus{outline:none!important}
