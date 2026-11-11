@@ -40,3 +40,13 @@ Dopyt má mať jednu hlavnú evidenciu v HubSpote, pracovnú úlohu v Asane, pot
 Formulár je momentálne iba demo a údaje sa neodosielajú. Reálne prepojenia sa doplnia po potvrdení príjemcov, oprávnení, účelu formulára a podmienok spolupráce. Samotné otvorenie e-mailu alebo kliknutie nepotvrdzuje prečítanie PDF. Marketingové správy, vyžiadaná prezentácia a žiadosť o kontakt s developerom majú samostatné pravidlá. Texty a načasovanie doladiť podľa schváleného procesu.
 
 Na konci Júliusovi ukáž konkrétne odkazy na obe ukážky, čo funguje, čo chýba a výsledok kontrol. Označ, či ide o lokálny náhľad, preview alebo produkciu. Zmeny ukladaj do tejto vetvy. Produkčné zverejnenie koordinuj s Júliusom podľa aktuálneho zadania.
+
+
+STAV K 11. 11. 2026 (druhé kolo)
+Detail je v docs/developer-projects.md.
+- Prepísané: kalkulačka (scenáre so zdrojmi, financovanie, daň, sezónnosť, bod zvratu, citlivosť, tabuľka predpokladov), porovnanie s trhom z analýzy z 15. 9. 2026, formulár so samostatnými dôvodmi a súhlasmi, sekcie Projekt a developer, Čo zabezpečí LIVE-IN, Čo overiť.
+- Nové: /projekty (interný rozcestník), /projekty/prehlad-dopytov (ukážka stavov a provízie).
+- Opravené: upratovanie bolo v pôvodnom modeli nulové (náklad 45 € = úhrada 45 €), na mobile sa kalkulačka stláčala, výsledok je teraz prilepený navrchu.
+- Overené v Chromiu (počítač 1440 px, iPhone 13): bez pretekania, bez chýb na konzole, výber všetkých 8 jednotiek prenáša cenu, neplatné vstupy, opakované odoslanie formulára.
+- Dôverné podklady Lordshipu sa nepoužili. Projektové stránky na seba neodkazujú.
+- Stále chýba: aktuálne cenníky, pôdorysy, vizualizácie, zásady spracúvania osobných údajov, príjemca dopytov, dohoda o provízii. Formulár je stále demo.
