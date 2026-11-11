@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   FIELDS,
   OPTIONAL_FIELDS,
@@ -105,10 +105,13 @@ export default function Calculator({ project, unit, onInterest }) {
   const [illustrative, setIllustrative] = useState(false);
 
   // Zmena jednotky prenesie jej cenu do kalkulačky, ostatné úpravy ostanú.
-  useEffect(() => {
+  // Stav sa upraví priamo pri vykresľovaní (nie v efekte), takže cena je správna hneď v prvom zobrazení.
+  const [lastUnit, setLastUnit] = useState(unit.id);
+  if (lastUnit !== unit.id) {
+    setLastUnit(unit.id);
     setRaw((r) => ({ ...r, price: unit.price ?? "" }));
     setIllustrative(false);
-  }, [unit.id, unit.price]);
+  }
 
   const set = (key, value) => {
     setRaw((r) => ({ ...r, [key]: value }));
@@ -132,6 +135,8 @@ export default function Calculator({ project, unit, onInterest }) {
   const errorOf = (key) => parsed.errors.find((e) => e.key === key);
   const scenario = c.scenarios.find((s) => s.id === scenarioId);
   const noPrice = raw.price === "";
+  // Prázdna cena pri novej jednotke nie je chyba používateľa: ukážeme pokojnú výzvu namiesto červeného okna.
+  const onlyPriceMissing = !parsed.ok && noPrice && parsed.errors.length === 1 && parsed.errors[0].key === "price";
   const fin = result?.financing;
   const maxBar = result ? Math.max(1, ...result.months.map((m) => Math.abs(m.value))) : 1;
 
@@ -215,7 +220,10 @@ export default function Calculator({ project, unit, onInterest }) {
             Obnoviť východiskové hodnoty
           </button>
         </div>
-        {!parsed.ok && (
+        {!parsed.ok && onlyPriceMissing && (
+          <p className="dp-note">Zadajte kúpnu cenu jednotky alebo vyskúšajte ilustračnú cenu.</p>
+        )}
+        {!parsed.ok && !onlyPriceMissing && (
           <div role="alert" className="dp-errbox">
             <strong>Opravte vstupy:</strong>
             <ul>

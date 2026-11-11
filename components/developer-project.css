@@ -216,7 +216,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
-  align-items: start;
+  align-items: flex-start;
 }
 .dp-unitlist {
   display: grid;
@@ -367,7 +367,7 @@
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 35px;
-  align-items: start;
+  align-items: flex-start;
 }
 .dp-inputs {
   display: grid;
@@ -498,7 +498,7 @@
 .dp-checkbox {
   display: flex !important;
   gap: 10px;
-  align-items: start;
+  align-items: flex-start;
   font-size: 11px !important;
   line-height: 1.7;
 }
@@ -681,7 +681,7 @@
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 50px;
-  align-items: start;
+  align-items: flex-start;
 }
 .dp-devcard {
   background: #fff;
