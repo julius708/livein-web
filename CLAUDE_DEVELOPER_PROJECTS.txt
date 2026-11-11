@@ -1,0 +1,42 @@
+Pokračuj v projekte LIVE-IN – developerské projektové stránky.
+
+Repozitár: https://github.com/julius708/livein-web
+Vetva: codex/developer-project-previews
+Najprv skontroluj git status a miestne zmeny. Existujúcu prácu zachovaj. Prečítaj prípadné AGENTS.md. Ak vetvu ešte nemáš, načítaj ju z origin. Pracuj v tejto vetve.
+
+Čo je vytvorené
+- app/projekty/[project]/page.js – stránky Next.js, metadata a statické parametre.
+- components/DeveloperProject.js – výber apartmánu, detaily, kalkulačka, porovnanie a demo formulár.
+- components/developer-project.css – responzívny dizajn v štýle LIVE-IN.
+- lib/developer-projects.js – údaje oboch projektov a výpočet investičného modelu.
+
+Otvor v prehliadači
+1. npm ci
+2. npm run dev
+3. http://localhost:3000/projekty/lazaretska-15
+4. http://localhost:3000/projekty/arteria-living
+
+Požadovaný výsledok
+Priprav kvalitné, upraviteľné ukážky na rokovania s developermi. Verejná projektová stránka bude mať vlastný zdieľateľný odkaz, predstavenie projektu a partnera, lokalitu, karty konkrétnych jednotiek, ich pôdorysy, plochy, ceny a dostupnosť, investičnú kalkulačku prispôsobenú vybranej jednotke a registráciu záujmu. Znovu použi existujúci web a kalkulačku LIVE-IN. Dohľadaj vlastné predchádzajúce prezentácie a modely a oznám Júliusovi ich presné umiestnenie.
+
+Stav ukážok
+Lazaretská 15 obsahuje osem jednotiek zo staršej ponuky. Ceny a dostupnosť sú označené ako historické a treba ich potvrdiť pred ostrým použitím.
+Arteria Living obsahuje modelovú jednotku s prázdnou cenou. Aktuálne jednotky, pôdorysy a verejné vizualizácie doplní zadávateľ. Finálne obchodné a marketingové podklady si vyžiadaj od Júliusa.
+
+Kontrola a opravy
+- Otvor obe stránky na počítači aj na mobile, vizuálne ich skontroluj a uprav pre profesionálnu prezentáciu. V predchádzajúcom prostredí sa Chromium nespustilo, vizuálna kontrola ostáva otvorená.
+- Over výber každej jednotky a prenos jej ceny do kalkulačky, prázdne a neplatné čísla, nulovú obsadenosť a vlastné pobyty.
+- Kalkulačka preberá logiku slovenskej kalkulačky z content/sk.json. Ukážkové vstupy sú upraviteľné. Pri správe sa má zachovať správny základ Rental Income. Over zaokrúhľovanie, poplatky, sezónnosť a vhodné náklady pre oba projekty. Model má rozlišovať prevádzkový výsledok, financovanie a daň z príjmu. Každý scenár musí uvádzať predpoklady a zdroj.
+- Doplň skutočné pôdorysy a schválené vizualizácie, keď sa nájdu. Náhradné polia nechaj zreteľne označené.
+- V porovnaní používaj aktuálne doložené ceny, plochy a štandard. Historické údaje majú dátum.
+- Oprav prípadné chyby v štýloch, prístupnosti, ovládaní a mobilnom zobrazení.
+- npm test a npm run build. Nespúšťaj produkčný build a dev server súčasne v rovnakom priečinku .next.
+
+Doterajšie overenie
+Prešlo 14 existujúcich testov a produkčný build. Overené boli aj hraničné výpočty. Samostatná HTML ukážka prešla DOM testom prepínania projektov, výberu jednotky, zmeny obsadenosti a demo odoslania formulára. Skutočné vizuálne overenie v prehliadači treba dokončiť.
+
+Nasledujúca fáza po potvrdení podkladov
+Dopyt má mať jednu hlavnú evidenciu v HubSpote, pracovnú úlohu v Asane, potvrdené odovzdanie developerovi a stav kontaktovaný / obhliadka / rezervácia / predané / neúspešné. Samostatne sa sleduje provízia očakávaná / nárok / fakturovaná / zaplatená. Duplicity a opakované pokusy o odoslanie nesmú vytvárať ďalšie dopyty alebo e-maily. Partnerský prístup musí zobrazovať iba príslušné dopyty developera.
+Formulár je momentálne iba demo a údaje sa neodosielajú. Reálne prepojenia sa doplnia po potvrdení príjemcov, oprávnení, účelu formulára a podmienok spolupráce. Samotné otvorenie e-mailu alebo kliknutie nepotvrdzuje prečítanie PDF. Marketingové správy, vyžiadaná prezentácia a žiadosť o kontakt s developerom majú samostatné pravidlá. Texty a načasovanie doladiť podľa schváleného procesu.
+
+Na konci Júliusovi ukáž konkrétne odkazy na obe ukážky, čo funguje, čo chýba a výsledok kontrol. Označ, či ide o lokálny náhľad, preview alebo produkciu. Zmeny ukladaj do tejto vetvy. Produkčné zverejnenie koordinuj s Júliusom podľa aktuálneho zadania.
