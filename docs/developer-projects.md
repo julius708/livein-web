@@ -30,26 +30,35 @@ Vzorce ako vo webovej kalkulačke: 30-dňový mesiac, správa a DPH z Rental Inc
 
 | Predpoklad | Hodnota | Zdroj |
 |---|---|---|
-| Cena za noc a obsadenosť | opatrný 71 € / 55 %, základný 75 € / 70 %, trhový medián 83 € / 72 % | PriceLabs 8. 11. 2026, referenčný apartmán 30. 4. 2026, kalkulačka |
+| Cena za noc a obsadenosť | opatrný 90 € / 60 %, **základný 98 € / 70 %**, vyšší 105 € / 75 % | zadanie LIVE-IN z 11. 11. 2026 (98 € bez poplatkov), referenčný apartmán 30. 4. 2026, horná hranica analýzy z 15. 9. 2026 |
+| Poplatky portálov | 15 % | potvrdené LIVE-IN 11. 11. 2026 |
+| Správa | 15 % z Rental Income pre oba projekty | zvýhodnená sadzba pre developerov (bežná je 17 %), dohodne sa |
+| DPH | 5 % z Rental Income | podľa zadania vo webovej kalkulačke |
+| Upratovanie | 25 € za rezerváciu, úhrada od hosťa 0 € | zadanie LIVE-IN z 11. 11. 2026 |
 | Dĺžka pobytu | 3,77 noci | kalkulačka, 1 126 rezervácií, snímka 12. 10. 2026 |
-| Portály | 15 % | analýza z 15. 9. 2026 (webová kalkulačka predvolene 0 %) |
-| Správa | Lazaretská 17 %, Arteria 15 % | bežná sadzba; návrh LIVE-IN pre Lordship z 27. 4. 2026 (nedohodnuté) |
-| DPH | 5 % z Rental Income | podľa zadania v kalkulačke |
-| Upratovanie | 32,5 € za pobyt, úhrada od hosťa 0 € | kalkulačka |
 | Fixné náklady | 200 € mesačne | analýza z 15. 9. 2026 (2 400 €/rok) |
 | Softvér | 50 € mesačne | kalkulačka (Guesty) |
 | Zariadenie a vstupné náklady | 15 000 € | ilustračné, nahradiť ponukou |
 
+**Výsledok základného scenára:** prevádzkový výsledok 1 010 € mesačne (12 122 € ročne). Výnos z investície: AP 13 5,3 %, priemer 8 jednotiek 5,5 %, jednotlivo od 4,8 % (AP 26, AP 1) po 6,5 % (AP 100). Test `tests/developer-projects.test.mjs` stráži pásmo 5–6 % pre priemer, AP 13 aj ilustračnú cenu Arterie.
+
 Financovanie (úrok, splatnosť, podiel hypotéky) a daň z príjmu nemajú predvolenú hodnotu. Daň je zjednodušená: základ = prevádzkový výsledok mínus úroky z hypotéky.
 
-## Otvorené body (rozhodnúť alebo doplniť)
-1. **Portály 15 % verzus 0 % vo webovej kalkulačke.** Ak je cena za noc v portfóliu pred poplatkami, webová kalkulačka nadhodnocuje čistý výsledok o približne 15 % tržieb. Treba potvrdiť, aký základ majú PriceLabs a Guesty.
-2. **Upratovanie.** Predvolene ho platí majiteľ. Ak hosť platí poplatok, výsledok je vyšší približne o 180 € mesačne.
-3. **Správa 15 % pre Lordship** je návrh z apríla, nie dohoda.
-4. Aktuálny cenník, dostupnosť, pôdorysy a vizualizácie od oboch developerov. Pre Lordship aj počet a typy jednotiek.
-5. Ilustračná cena 150 000 € pre Arteria Living je len na predvedenie funkcie.
-6. Text a odkaz na zásady spracúvania osobných údajov, príjemca dopytov u developera.
-7. Zákon č. 133/2026 Z. z. o registri krátkodobého ubytovania a ďalšie právne údaje z analýzy treba pred zverejnením overiť.
+## Rozhodnuté 11. 11. 2026 (J. Honsch)
+1. Poplatky portálov sú 15 %.
+2. Výnos nastaviť na 5–6 %, priemerná cena za noc okolo 98 € bez poplatkov. Poplatky portálov sa z nej odpočítavajú zvlášť.
+3. Upratovanie 25 € za rezerváciu pre tieto apartmány.
+4. Pre developerov zvýhodnená provízia správy (15 %).
+5. Chýbajúce podklady (cenníky, pôdorysy, vizualizácie) dodajú developeri. Ide len o návrh na stretnutie a prezentáciu.
+6. Stránky sú len prípravné na prezentáciu a nikam sa nezdieľajú.
+
+## Otvorené body
+1. Preview na Verceli (`livein-web-git-codex-developer-project-previews-pracovna-app.vercel.app`) je technicky verejné pre toho, kto pozná odkaz: projekt nemá zapnutú ochranu Vercel Authentication. Stránky majú `noindex` a nikde nie sú zalinkované. Na úplné skrytie treba zapnúť ochranu preview nasadení v nastaveniach projektu.
+2. Aktuálny cenník, dostupnosť, pôdorysy a vizualizácie od oboch developerov. Pre Lordship aj počet a typy jednotiek.
+3. Ilustračná cena 190 000 € pre Arteria Living a zariadenie 15 000 € sú len na predvedenie funkcie.
+4. Text a odkaz na zásady spracúvania osobných údajov, príjemca dopytov u developera.
+5. Zákon č. 133/2026 Z. z. o registri krátkodobého ubytovania a ďalšie právne údaje z analýzy treba pred zverejnením overiť.
+6. Konkrétna sadzba provízie správy sa dohodne s každým developerom zvlášť.
 
 ## Evidencia dopytov (ďalšia fáza, nič z toho zatiaľ nebeží)
 **Tok:** formulár → jeden záznam u LIVE-IN → HubSpot → úloha v Asane → (len so súhlasom) odovzdanie developerovi → stav dopytu → provízia → príležitosť na správu.

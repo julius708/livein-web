@@ -132,10 +132,36 @@ test('porovnateľné ponuky: cena za m² zodpovedá uvedeným údajom z analýzy
   const expected = [9548, 8982, 8584, 8132, 7761, 7300, 6979, 6143, 6006, 6121]
   rows.forEach((r, i) => assert.ok(Math.abs(r.price / r.area - expected[i]) < 1.5, r.label))
 })
-test('Arteria Living: modelová jednotka bez ceny, projekt má vlastnú províziu 15 % a ilustračnú cenu', () => {
+test('Arteria Living: modelová jednotka bez ceny a s ilustračnou cenou; oba projekty majú zvýhodnenú províziu 15 %', () => {
   const a = projects['arteria-living']
-  assert.equal(a.units[0].price, null); assert.equal(a.calc.management, 15); assert.ok(a.calc.illustrativePrice > 0); assert.equal(a.market, null)
-  assert.equal(projects['lazaretska-15'].calc.management, 17)
+  assert.equal(a.units[0].price, null); assert.ok(a.calc.illustrativePrice > 0); assert.equal(a.market, null)
+  assert.equal(a.calc.management, 15); assert.equal(projects['lazaretska-15'].calc.management, 15)
+})
+test('zadanie 11. 11. 2026: portály 15 %, upratovanie 25 € za rezerváciu, základný scenár 98 € a 70 %', () => {
+  for (const p of Object.values(projects)) {
+    assert.equal(p.calc.portal, 15); assert.equal(p.calc.clean, 25); assert.equal(p.calc.cleanPaid, 0)
+    const base = p.calc.scenarios.find((x) => x.id === 'base'); assert.equal(base.adr, 98); assert.equal(base.occupancy, 70)
+  }
+})
+const yieldFor = (project, price, scenarioId = 'base') => {
+  const c = project.calc, s = c.scenarios.find((x) => x.id === scenarioId)
+  const r = readValues({ price, furnishing: c.furnishing, adr: s.adr, occupancy: s.occupancy, own: c.own, stay: c.stay, portal: c.portal, management: c.management, vat: c.vat, clean: c.clean, cleanPaid: c.cleanPaid, fixed: c.fixed, software: c.software })
+  assert.ok(r.ok, JSON.stringify(r.errors)); return investmentResult(r.values)
+}
+test('základný scenár dáva prevádzkový výnos 5–6 %: priemer Lazaretskej, AP 13 aj ilustračná cena Arterie', () => {
+  const p = projects['lazaretska-15']
+  const all = p.units.map((u) => yieldFor(p, u.price))
+  const avg = all.reduce((a, r) => a + r.annual, 0) / all.reduce((a, r) => a + r.investment, 0) * 100
+  assert.ok(avg >= 5 && avg <= 6, `priemer ${avg}`)
+  const ap13 = yieldFor(p, 214000).yield; assert.ok(ap13 >= 5 && ap13 <= 6, `AP 13 ${ap13}`)
+  const art = projects['arteria-living'], ay = yieldFor(art, art.calc.illustrativePrice).yield; assert.ok(ay >= 5 && ay <= 6, `Arteria ${ay}`)
+  // jednotlivé apartmány sa líšia podľa ceny; žiadny nevyjde mimo 4,5–6,6 %
+  for (const r of all) assert.ok(r.yield > 4.5 && r.yield < 6.6, String(r.yield))
+})
+test('opatrný scenár je pod základným a vyšší nad ním', () => {
+  const p = projects['lazaretska-15']
+  const lo = yieldFor(p, 214000, 'cautious').yield, mid = yieldFor(p, 214000).yield, hi = yieldFor(p, 214000, 'high').yield
+  assert.ok(lo < mid && mid < hi && lo > 0, `${lo} ${mid} ${hi}`)
 })
 test('scenáre majú zdroj a platné hodnoty; východiská prejdú overením pre oba projekty', () => {
   for (const p of Object.values(projects)) {

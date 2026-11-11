@@ -50,3 +50,8 @@ Detail je v docs/developer-projects.md.
 - Overené v Chromiu (počítač 1440 px, iPhone 13): bez pretekania, bez chýb na konzole, výber všetkých 8 jednotiek prenáša cenu, neplatné vstupy, opakované odoslanie formulára.
 - Dôverné podklady Lordshipu sa nepoužili. Projektové stránky na seba neodkazujú.
 - Stále chýba: aktuálne cenníky, pôdorysy, vizualizácie, zásady spracúvania osobných údajov, príjemca dopytov, dohoda o provízii. Formulár je stále demo.
+
+ROZHODNUTIA 11. 11. 2026 (J. Honsch) – zapracované
+- Portály 15 %, cena za noc okolo 98 € bez poplatkov, upratovanie 25 € za rezerváciu, správa 15 % (zvýhodnená pre developerov) pre oba projekty.
+- Základný scenár dáva výnos 5–6 % (priemer Lazaretskej 5,5 %). Stráži ho test.
+- Stránky sú len prípravné na prezentáciu, nikam sa nezdieľajú. Preview na Verceli nemá zapnutú ochranu, preto odkaz nikde nezverejňovať.

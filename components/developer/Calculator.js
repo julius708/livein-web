@@ -15,11 +15,11 @@ import {
 import { Fill } from "./ui";
 
 const HINTS = {
-  adr: "Priemer, ktorý hosť skutočne zaplatí za noc počas celého roka (letné aj zimné ceny spolu), nie cenníková cena v sezóne.",
+  adr: "Priemerná cena za noc počas celého roka (letné aj zimné ceny spolu) bez poplatkov za upratovanie a iných poplatkov. Poplatky portálov odpočítame zvlášť.",
   occupancy: "Podiel ponúkaných nocí, ktoré sú obsadené. Nie je to garancia.",
   own: "Znižujú počet nocí ponúkaných na prenájom.",
   stay: "Určuje počet upratovaní: rezervácie = obsadené noci ÷ dĺžka pobytu.",
-  portal: "Odpočítame od tržieb. Správa a DPH sa počítajú z Rental Income po odpočítaní poplatkov.",
+  portal: "15 % (potvrdené LIVE-IN). Odpočítame od tržieb. Správa a DPH sa počítajú z Rental Income po odpočítaní poplatkov.",
   cleanPaid: "Zadajte len vtedy, ak poplatok od hosťa nie je už v cene za noc. Inak by sa započítal dvakrát.",
   fixed: "Energie, internet, poistenie, fond opráv, daň z nehnuteľnosti a rezerva na opravy.",
   furnishing: "Ilustračný predpoklad. Nahradí ho ponuka podľa štandardu vybavenia.",
@@ -145,10 +145,10 @@ export default function Calculator({ project, unit, onInterest }) {
     ["Zariadenie a vstupné náklady", formatMoney(Number(raw.furnishing)), "ilustračné", "Ilustračný predpoklad LIVE-IN, nie ponuka. Nahradí ho rozpočet podľa štandardu vybavenia."],
     ["Cena za noc a obsadenosť", `${formatMoney(Number(raw.adr))} · ${formatNumber(Number(raw.occupancy), 1)} %`, scenario ? "zdroj" : "vlastné", scenario ? scenario.source : "Vlastná hodnota zadaná používateľom."],
     ["Dĺžka pobytu", `${formatNumber(Number(raw.stay))} noci`, "zdroj", SOURCES.stay],
-    ["Poplatky portálov", `${formatNumber(Number(raw.portal), 1)} %`, "predpoklad", "Predpoklad analýzy LIVE-IN z 15. 9. 2026 (provízia platforiem 15 %). Webová kalkulačka LIVE-IN predvolene počíta 0 %, lebo v nej sa zadáva cena už po odpočítaní poplatkov."],
+    ["Poplatky portálov", `${formatNumber(Number(raw.portal), 1)} %`, "zdroj", "15 %, potvrdené LIVE-IN 11. 11. 2026. Odpočítavajú sa od tržieb pred výpočtom správy a DPH."],
     ["Správa LIVE-IN", `${formatNumber(Number(raw.management), 1)} % z Rental Income`, "predpoklad", c.managementSource],
     ["DPH v modeli", `${formatNumber(Number(raw.vat), 1)} % z Rental Income`, "predpoklad", "Podľa zadania vo webovej kalkulačke LIVE-IN. Pre konkrétneho investora treba overiť s účtovníkom."],
-    ["Upratovanie", `${formatNumber(Number(raw.clean))} € za pobyt, úhrada od hosťa ${formatNumber(Number(raw.cleanPaid))} €`, "zdroj", "Webová kalkulačka LIVE-IN: menší byt 30–35 €. Úhrada od hosťa je predvolene 0 €."],
+    ["Upratovanie", `${formatNumber(Number(raw.clean))} € za rezerváciu, úhrada od hosťa ${formatNumber(Number(raw.cleanPaid))} €`, "zdroj", "25 € za rezerváciu pre tieto menšie apartmány (zadanie LIVE-IN z 11. 11. 2026). Úhrada od hosťa je predvolene 0 €."],
     ["Energie, fond opráv a ďalšie", `${formatMoney(Number(raw.fixed))} mesačne`, "zdroj", SOURCES.analysis],
     ["Softvér", `${formatMoney(Number(raw.software))} mesačne`, "zdroj", "Guesty 50 € mesačne (webová kalkulačka LIVE-IN)."],
     ["Modelový rok", "12 × 30 dní = 360 nocí", "predpoklad", "Rovnako ako webová kalkulačka LIVE-IN. Skutočný rok má 365 dní, preto je model mierne opatrný."],
